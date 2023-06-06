@@ -24,7 +24,13 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 	opt.Password.RequireUppercase = false;
 	opt.Password.RequiredLength = 6;
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<ProniaContext>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddAuthentication().AddGoogle(opt =>
+{
+	opt.ClientId = "426285866270-b99ogp4j96oa5mfuoalkjcipehhiebil.apps.googleusercontent.com";
+	opt.ClientSecret= "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";
 
+});
 builder.Services.ConfigureApplicationCookie(opt =>
 {
 	opt.Events.OnRedirectToLogin = opt.Events.OnRedirectToAccessDenied = context =>

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit.Cryptography;
 using Pronia.DAL;
 using Pronia.Models;
+using Pronia.Services;
 using Pronia.ViewModels;
 
 namespace Pronia.Controllers
@@ -12,13 +14,15 @@ namespace Pronia.Controllers
         private readonly ProniaContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly IEmailSender _emailSender;
 
-        public AccountController(ProniaContext context,UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        public AccountController(ProniaContext context,UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,IEmailSender emailSender)
         {
            
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            _emailSender = emailSender;
         }
         public IActionResult Login()
         {
@@ -95,11 +99,58 @@ namespace Pronia.Controllers
 
             return RedirectToAction("login");
         }
-        
-        
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("index", "home");
+        }
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgetPassword(ForgetPasswordViewModel forgetVM)
+        {
+            if (!ModelState.IsValid) { return View(); };
+            AppUser user = await _userManager.FindByEmailAsync(forgetVM.Email);
+            if(user== null||user.IsAdmin) { ModelState.AddModelError("Email", "Email not found"); };
+            string token =await _userManager.GeneratePasswordResetTokenAsync(user);
+            string url = Url.Action("resetpassword", "account", new {email=forgetVM.Email,token=token},Request.Scheme);
+            _emailSender.Send(forgetVM.Email, "Reset Password", $" Click <a href=\"{url}\"> Here</a>");
 
-         
-        
+            return RedirectToAction("login");
+        }
+        public async Task<IActionResult> ResetPassword(string email,string token)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
+            if (user==null||user.IsAdmin||!await _userManager.VerifyUserTokenAsync(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", token))
+            {
+                ModelState.AddModelError("Email", "Email not found");
+            }
+            ViewBag.Email = email;
+            ViewBag.Token = token;  
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetVM)
+        {
+            ViewBag.Email = resetVM.Email;
+            ViewBag.Token=resetVM.Token;
+
+            AppUser user = await _userManager.FindByEmailAsync(resetVM.Email);
+
+            if (user == null||user.IsAdmin)
+            { ModelState.AddModelError("Email", "Email not found");return View(); }
+            var result =await _userManager.ResetPasswordAsync(user, resetVM.Token, resetVM.Password);
+            if (!result.Succeeded) 
+            {
+                ModelState.AddModelError("", "Write correctly");
+                return View();
+            }
+            return RedirectToAction("login");
+        }
         
     }
 }

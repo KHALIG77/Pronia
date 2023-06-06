@@ -165,11 +165,20 @@
                               >My account</a
                             >
                           </li>
-                          <li>
-                            <a class="dropdown-item" asp-action="login" asp-controller="account"
-                              >Login</a>
-                            
-                          </li>
+                          @if(!User.Identity.IsAuthenticated)
+                          {
+                                 <li>
+                                  <a class="dropdown-item" asp-action="login" asp-controller="account">Login</a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" asp-action="logout" asp-controller="account">Log out</a>
+
+                                                    </li>
+                                                }
+                                              
                            <li>
                             <a class="dropdown-item" asp-action="register" asp-controller="account"
                               >Register</a>
