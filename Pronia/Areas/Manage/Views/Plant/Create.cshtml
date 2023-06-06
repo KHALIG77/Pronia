@@ -1,0 +1,101 @@
+﻿@using Pronia.Enums;
+@model Plant
+
+@{
+    ViewData["Title"] = "Create";
+
+}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1>Create</h1>
+        <form method="post" asp-action="create" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input type="text" class="form-control" asp-for="Name">
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Description</label>
+                <textarea type="text" class="form-control" asp-for="Description"></textarea>
+                <span asp-validation-for="Description"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SalePrice">SalePrice</label>
+                <input class="form-control" asp-for="SalePrice" rows="2">
+                <span asp-validation-for="SalePrice"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CostPrice">CostPrice</label>
+                <input type="text" class="form-control" asp-for="CostPrice">
+                <span asp-validation-for="CostPrice"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscountPercent">DiscountPercent</label>
+                <input type="text" class="form-control" asp-for="DiscountPercent">
+                <span asp-validation-for="DiscountPercent"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="isNew">IsNew</label>
+                <input class="form-control" asp-for="isNew">
+                <span class="text-danger" asp-validation-for="isNew"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="isFeatured">isFeatured</label>
+                <input class="form-control" asp-for="isFeatured">
+                <span class="text-danger" asp-validation-for="isFeatured"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StockStatus">StockStatus</label>
+                <input class="form-control" asp-for="StockStatus">
+                <span class="text-danger" asp-validation-for="StockStatus"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId">Category</label>
+                <select class="form-control" asp-for="CategoryId" asp-items="new SelectList(ViewBag.Categories,nameof(Category.Id),nameof(Category.Name))"></select>
+                <span asp-validation-for="CategoryId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size">Size</label>
+                <select class="form-control" asp-for="Size">
+
+                  @foreach (var item in Enum.GetNames(typeof(PlantSize)))
+                    {
+                        <option value="@((int)Enum.Parse(typeof(PlantSize),item))">@item</option>
+                    }
+                  
+                </select>
+                <span asp-validation-for="CategoryId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TagIds">Tags</label>
+                <select class="form-control" asp-for="TagIds" asp-items="new SelectList(ViewBag.Tags,nameof(Tag.Id),nameof(Tag.Name))"></select>
+                <span class="text-danger" asp-validation-for="TagIds"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PosterImage">PosterImage</label>
+                <input class="form-control" asp-for="PosterImage">
+                <span asp-validation-for="PosterImage"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="HoverImage">HoverImage</label>
+                <input class="form-control" asp-for="HoverImage">
+                <span asp-validation-for="HoverImage"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="AllImages">AllImages</label>
+                <input class="form-control" asp-for="AllImages">
+                <span asp-validation-for="AllImages"></span>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @Html.Partial("_ValidationScripsPartial");
+}
+

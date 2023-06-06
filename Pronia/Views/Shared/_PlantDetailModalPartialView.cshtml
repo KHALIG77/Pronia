@@ -1,0 +1,127 @@
+﻿@model QuickModalViewModel
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                data-tippy="Close"
+                data-tippy-inertia="true"
+                data-tippy-animation="shift-away"
+                data-tippy-delay="50"
+                data-tippy-arrow="true"
+                data-tippy-theme="sharpborder"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-wrap row">
+            <div class="col-lg-6">
+                <div class="modal-img">
+                    <div class="swiper-container modal-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="#" class="single-img">
+                                    <img class="img-full"
+                                         src="~/uploads/plants/@Model.Plant.Images.FirstOrDefault(x=>x.ImageStatus==Pronia.Enums.ImageStatus.Poster).ImageName"
+                                         alt="Product Image" />
+                                </a>
+                            </div>
+                            
+                            @foreach (var img in Model.Plant.Images.Where(x=>x.ImageStatus==Pronia.Enums.ImageStatus.Images))
+                            {
+                                <div class="swiper-slide">
+                                    <a href="#" class="single-img">
+                                        <img class="img-full"
+                                             src="~/uploads/plants/@img.ImageName"
+                                             alt="Product Image" />
+                                    </a>
+                                </div>
+                            }
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 pt-5 pt-lg-0">
+                <div class="single-product-content">
+                    <h2 class="title">@Model.Plant.Name</h2>
+                    <div class="price-box pb-1">
+                        @if (Model.Plant.DiscountPercent > 0)
+                        {
+                            <span class="new-price">$@((Model.Plant.SalePrice - ((Model.Plant.SalePrice * (Model.Plant.DiscountPercent)) / 100)).ToString("0.00"))</span>
+                            <del class="old-price">$@Model.Plant.SalePrice.ToString("0.00")</del>
+                            <span class="discount">@Model.Plant.DiscountPercent.ToString("0.##")%</span>
+                        }
+                        else
+                        {
+                            <span class="new-price">$@Model.Plant.SalePrice.ToString("0.00")</span>
+
+                        }
+
+                    </div>
+                    <div class="rating-box">
+                        <ul>
+                            @for (int j = 1; j <= 5; j++)
+                            {
+                                <li><i class="fa  @(j<=Model.Plant.Rate?"fa-star":"fa-star-o")"></i></li>
+                            }
+
+                        </ul>
+                    </div>
+                   
+                    <div class="selector-wrap size-option">
+                        <span class="selector-title">Size</span>
+                        <select class="nice-select wide rounded-0">
+                            <option value="@Model.Plant.Category.Name">@Model.Plant.Size Size & Poot</option>
+                        </select>
+                    </div>
+                    <p class="short-desc">
+                        @Model.Plant.Description --Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta ac nibh fermentum lacinia.
+                        Fusce pellentesque justo velit. Proin fermentum aliquam augue,
+                        quis mattis erat iaculis id. Integer id tortor aliquet, luctus turpis et, euismod lacus. 
+                        Sed ultrices egestas urna quis elementum. Aliquam ultricies sapien vel lectus dictum
+                    </p>
+                    <ul class="quantity-with-btn">
+                        <li class="quantity">
+                            <div class="cart-plus-minus">
+                                <input class="cart-plus-minus-box"
+                                       value="1"
+                                       type="text" />
+                            </div>
+                        </li>
+                        <li class="add-to-cart">
+                            <a class="btn btn-custom-size lg-size btn-pronia-primary"
+                               href="cart.html">Add to cart</a>
+                        </li>
+                        <li class="wishlist-btn-wrap">
+                            <a class="custom-circle-btn" href="wishlist.html">
+                                <i class="pe-7s-like"></i>
+                            </a>
+                        </li>
+                        <li class="compare-btn-wrap">
+                            <a class="custom-circle-btn" href="compare.html">
+                                <i class="pe-7s-refresh-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="service-item-wrap pb-0">
+                        @foreach (var ft in Model.Features)
+                        {
+                            <li class="service-item">
+                            <div class="service-img">
+                                <img src="~/images/website-images/@ft.IconUrl"
+                                     alt="Shipping Icon" />
+                            </div>
+                            <div class="service-content">
+                                <span class="title">
+                                    @ft.Title
+                                </span>
+                            </div>
+                        </li>
+                        }
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

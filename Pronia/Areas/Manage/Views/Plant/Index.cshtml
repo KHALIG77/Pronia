@@ -1,0 +1,70 @@
+﻿@model PaginatedList<Plant>
+@{
+    ViewData["Title"] = "Index";
+    int order = (Model.PageIndex - 1) * 2;
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h1>Plants</h1>
+        <a class="btn btn-primary" asp-action="create">Create</a>
+       
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">SalePrice</th>
+                    <th scope="col">CostPrice</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    order++;
+                    <tr>
+                        <td>@order</td>
+                        <td>@item.Name</td>
+                        <td>@(item.DiscountPercent>0?(item.SalePrice-((item.SalePrice*item.DiscountPercent)/100)).ToString("0.00"):item.SalePrice.ToString("0.00"))</td>
+                        <td>@item.CostPrice.ToString("0.00")</td>
+                        <td>@item.Category.Name</td>
+                        <td><img height="50px" width="50px" src="~/uploads/plants/@item.Images.FirstOrDefault(x=>x.ImageStatus==Pronia.Enums.ImageStatus.Poster).ImageName"></td>
+                        <td>
+
+                            <a class="btn btn-warning" asp-action="edit" asp-route-id="@item.Id">Edit</a>
+                            <a class="btn btn-danger delete-btn" asp-action="delete" asp-route-id="@item.Id">Delete</a>
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item @(Model.HasPrevious?"":"disabled")">
+                    <a class="page-link" asp-action="index" asp-route-search="@ViewBag.Search" asp-route-page="@(Model.PageIndex-1)" tabindex="-1">Previous</a>
+                </li>
+                @for (int i = 1; i <= Model.TotalPage; i++)
+                {
+                    <li class="page-item @(i==Model.PageIndex?"active":"")"><a class="page-link" asp-action="index" asp-route-search="@ViewBag.Search" asp-route-page="@i">@i</a></li>
+
+                }
+                <li class="page-item @(Model.HasNext?"":"disabled")">
+                    <a class="page-link" asp-action="index" asp-route-search="@ViewBag.Search" asp-route-page="@(Model.PageIndex+1)">Next</a>
+
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+}
