@@ -166,9 +166,14 @@
                             >
                           </li>
                           <li>
-                            <a class="dropdown-item" href="login-register.html"
-                              >Login | Register</a
-                            >
+                            <a class="dropdown-item" asp-action="login" asp-controller="account"
+                              >Login</a>
+                            
+                          </li>
+                           <li>
+                            <a class="dropdown-item" asp-action="register" asp-controller="account"
+                              >Register</a>
+                            
                           </li>
                         </ul>
                       </li>
@@ -1290,6 +1295,9 @@
 
 
     <!--Main JS (Common Activation Codes)-->
+   
     <script src="~/js/main.js"></script>
+    @RenderSection("Validation",required:false)
+   
   </body>
 </html>
