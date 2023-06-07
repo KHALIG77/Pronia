@@ -27,9 +27,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddAuthentication().AddGoogle(opt =>
 {
-	opt.ClientId = "426285866270-b99ogp4j96oa5mfuoalkjcipehhiebil.apps.googleusercontent.com";
-	opt.ClientSecret= "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";
-
+    opt.ClientId = "392486084712-ri54hd00he20ulikkatq039k5i6hfg3v.apps.googleusercontent.com";
+    opt.ClientSecret = "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";
 });
 builder.Services.ConfigureApplicationCookie(opt =>
 {

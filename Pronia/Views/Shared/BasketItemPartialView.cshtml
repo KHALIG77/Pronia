@@ -1,0 +1,41 @@
+﻿@model BasketViewModel
+
+
+
+   
+    <ul class="minicart-list">
+        @foreach (var item in Model.BasketItems)
+        {
+            <li class="minicart-product">
+                <a class="product-item_remove removefrombasket" asp-action="removebasket" asp-controller="plant" asp-route-id="@item.Plant.Id">
+                    <i class="pe-7s-close"
+                       data-tippy="Remove"
+                       data-tippy-inertia="true"
+                       data-tippy-animation="shift-away"
+                       data-tippy-delay="50"
+                       data-tippy-arrow="true"
+                       data-tippy-theme="sharpborder"></i>
+                </a>
+                <a href="single-product-variable.html"
+                   class="product-item_img">
+                    <img class="img-full"
+                         src="~/uploads/plants/@item.Plant.Images.FirstOrDefault(x=>x.ImageStatus==Pronia.Enums.ImageStatus.Poster).ImageName"
+                         alt="Product Image" />
+                </a>
+                <div class="product-item_content">
+                    <a class="product-item_title"
+                       href="single-product-variable.html">@item.Plant.Name</a>
+                    <span class="product-item_quantity">@item.Count x $@(item.Plant.DiscountPercent>0?((item.Plant.SalePrice*(100-item.Plant.DiscountPercent))/100):item.Plant.SalePrice)</span>
+                </div>
+                <input value="@Model.AllCount" type="hidden" id="AllCount">
+            </li>
+        }
+       
+      
+    </ul>
+
+<div class="minicart-item_total">
+    <span>Subtotal</span>
+    <span class="ammount">$@Model.TotalPrice.ToString("0.00")</span>
+</div>
+

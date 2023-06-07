@@ -657,6 +657,10 @@
       "PackagePath": "staticwebassets\\images\\website-images\\service.png"
     },
     {
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\js\\custom.js",
+      "PackagePath": "staticwebassets\\js\\custom.js"
+    },
+    {
       "Id": "C:\\Pronia\\Pronia\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },

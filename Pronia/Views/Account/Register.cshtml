@@ -1,5 +1,6 @@
 ﻿@model UserRegisterViewModel
 
+<div class="d-flex justify-content-center align-items-center">
 <div class="col-lg-6 pt-5 pt-lg-0">
     <form asp-action="register">
         <div class="login-form">
@@ -40,7 +41,7 @@
         </div>
     </form>
 </div>
-
+</div>
 @section Validation{
     @Html.Partial("_ValidationScriptsPartial");
 }

@@ -170,7 +170,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="cart.html"
+                                                        <a class="add-basket" asp-action="addtobasket" asp-controller="plant" asp-route-id="@Model.FeaturedPlant[i].Id"
                                                            data-tippy="Add to cart"
                                                            data-tippy-inertia="true"
                                                            data-tippy-animation="shift-away"
@@ -226,10 +226,10 @@
                                         <div class="product-img">
                                             <a href="shop.html">
                                                 <img class="primary-img"
-                                                     src="~/uploads/plants/@Model.FeaturedPlant[i].Images.FirstOrDefault(x=>x.ImageStatus==Pronia.Enums.ImageStatus.Poster).ImageName"
+                                                     src="~/uploads/plants/@Model.IsNewPlant[i].Images.FirstOrDefault(x=>x.ImageStatus==Pronia.Enums.ImageStatus.Poster).ImageName"
                                                      alt="Product Images" />
                                                 <img class="secondary-img"
-                                                     src="~/uploads/plants/@Model.FeaturedPlant[i].Images.FirstOrDefault(x=>x.ImageStatus==Pronia.Enums.ImageStatus.Hover).ImageName"
+                                                     src="~/uploads/plants/@Model.IsNewPlant[i].Images.FirstOrDefault(x=>x.ImageStatus==Pronia.Enums.ImageStatus.Hover).ImageName"
                                                      alt="Product Images" />
                                             </a>
                                             <div class="product-add-action">
@@ -260,7 +260,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="cart.html"
+                                                        <a class="add-basket" asp-action="addtobasket" asp-controller="plant" asp-route-id="@Model.IsNewPlant[i].Id"
                                                            data-tippy="Add to cart"
                                                            data-tippy-inertia="true"
                                                            data-tippy-animation="shift-away"
@@ -351,7 +351,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="cart.html"
+                                                        <a class="add-basket" asp-action="addtobasket" asp-controller="plant" asp-route-id="@Model.DiscountedPlant[i].Id"
                                                            data-tippy="Add to cart"
                                                            data-tippy-inertia="true"
                                                            data-tippy-animation="shift-away"
@@ -534,7 +534,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="cart.html"
+                                                <a class="add-basket" asp-action="addtobasket" asp-controller="plant" asp-route-id="@Model.Rated[i].Id"
                                                    data-tippy="Add to cart"
                                                    data-tippy-inertia="true"
                                                    data-tippy-animation="shift-away"

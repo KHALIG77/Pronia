@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MimeKit.Cryptography;
@@ -146,11 +147,47 @@ namespace Pronia.Controllers
             var result =await _userManager.ResetPasswordAsync(user, resetVM.Token, resetVM.Password);
             if (!result.Succeeded) 
             {
-                ModelState.AddModelError("", "Write correctly");
+                ModelState.AddModelError("","Write correctly");
                 return View();
             }
             return RedirectToAction("login");
         }
-        
+        public IActionResult GoogleLogin()
+        {
+            string url = Url.Action("googleresponse", "account", Request.Scheme);
+            var prop = _signInManager.ConfigureExternalAuthenticationProperties("Google", url);
+            return new ChallengeResult("Google",prop);
+
+        }
+        public async Task<IActionResult> GoogleResponse()
+        {
+            var info = _signInManager?.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                return RedirectToAction("login");
+
+            }
+            var email = info.Result.Principal.FindFirstValue(ClaimTypes.Email);
+            AppUser user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                user = new AppUser()
+                {
+                    Email = email,
+                    UserName = email
+
+                };
+                var result = await _userManager.CreateAsync(user);
+                if (!result.Succeeded)
+                {
+                    return RedirectToAction("login");
+                }
+                await _userManager.AddToRoleAsync(user, "Member");
+            }
+            await _signInManager.SignInAsync(user, false);
+            return RedirectToAction("index", "home");
+        }
     }
+
 }
+

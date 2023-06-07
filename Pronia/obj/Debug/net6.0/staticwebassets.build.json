@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7p00x4eq1aOXRwGZpKOrEQkSVtE6zaept0DnH+0XxZI=",
+  "Hash": "wB2w05PSmXtXUQDnAZ7La+UzZxnOxEN282QLd0hvzAE=",
   "Source": "Pronia",
   "BasePath": "_content/Pronia",
   "Mode": "Default",
@@ -2820,6 +2820,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\website-images\\service.png"
+    },
+    {
+      "Identity": "C:\\Pronia\\Pronia\\wwwroot\\js\\custom.js",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Pronia\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "js/custom.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\custom.js"
     },
     {
       "Identity": "C:\\Pronia\\Pronia\\wwwroot\\js\\main.js",

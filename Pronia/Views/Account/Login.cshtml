@@ -1,6 +1,6 @@
 ﻿@model UserLoginViewModel
 
-
+<div class="d-flex justify-content-center align-items-center">
 <div class="col-lg-4">
     <form asp-action="login" method="post">
         <div class="login-form">
@@ -23,13 +23,22 @@
                     </div>
                 </div>
               
-                <div class="col-lg-12 pt-5">
-                    <button class="btn btn-custom-size lg-size btn-pronia-primary">
-                        Login
-                    </button>
+                <div class="row">
+                    <div class="col-lg-6 pt-5">
+                        <button class="btn btn-custom-size lg-size btn-pronia-primary">
+                            Login
+                        </button>
+                    </div>
+                    <div class="col-lg-6 pt-5">
+                        <a class="btn btn-custom-size lg-size btn-pronia-primary" asp-action="googlelogin">
+                            Login with Google
+                        </a>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </form>
+</div>
 </div>
 
