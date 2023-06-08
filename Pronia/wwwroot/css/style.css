@@ -1249,9 +1249,9 @@ blockquote p {
 }
 
 /* ---Price Box--- */
-.price-box span {
+/*.price-box span {
   font-size: 20px;
-}
+}*/
 
 .price-box span.new-price {
   color: #abd373;

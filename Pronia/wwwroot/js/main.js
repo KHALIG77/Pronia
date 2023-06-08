@@ -808,9 +808,20 @@
     /*----------------------------------------*/
     /*  ion Range Slider 
 /*----------------------------------------*/
-    $('.pronia-range-slider').ionRangeSlider({
+    $('.pronia-range-slider2').ionRangeSlider({
         prefix: '$',
+        onFinish: function (data) {
+            console.log(data.from, data.to)
+            $("#minPrice").val(data.from)
+            $("#maxPrice").val(data.to)
+
+           
+        }
+      
+        
+        
     });
+    
 
     /*--------------------------------
     Ajax Contact Form
