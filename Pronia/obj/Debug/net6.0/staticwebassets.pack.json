@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\nice-select.css"
     },
     {
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\css\\ordertable.css",
+      "PackagePath": "staticwebassets\\css\\ordertable.css"
+    },
+    {
       "Id": "C:\\Pronia\\Pronia\\wwwroot\\css\\plugins.min.css",
       "PackagePath": "staticwebassets\\css\\plugins.min.css"
     },

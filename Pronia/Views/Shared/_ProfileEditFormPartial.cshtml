@@ -1,0 +1,53 @@
+﻿@model ProfileEditViewModel
+
+<form method="post" asp-action="profile" class="myaccount-form">
+    <div class="myaccount-form-inner">
+        <div class="single-input single-input-half">
+            <label asp-for="FullName" >FullName</label>
+            <input type="text" asp-for="FullName"/>
+            <span class="text-danger" asp-validation-for="FullName"></span>
+        </div>
+        <div class="single-input single-input-half">
+            <label asp-for="UserName">UserName</label>
+            <input type="text" asp-for="UserName" />
+            <span class="text-danger" asp-validation-for="UserName"></span>
+        </div>
+        <div class="single-input">
+            <label asp-for="Email">Email</label>
+            <input type="text" asp-for="Email" />
+            <span class="text-danger" asp-validation-for="Email"></span>
+        </div>
+        <div class="single-input">
+            <label asp-for="Address">Address</label>
+            <input type="text" asp-for="Address" />
+            <span class="text-danger" asp-validation-for="Address"></span>
+        </div>
+        <div class="single-input">
+            <label asp-for="Phone">Phone</label>
+            <input type="text" asp-for="Phone" />
+            <span class="text-danger" asp-validation-for="Phone"></span>
+        </div>
+        <div class="single-input">
+            <label asp-for="CurrentPassword">CurrentPassword</label>
+            <input type="text" asp-for="CurrentPassword" />
+            <span class="text-danger" asp-validation-for="CurrentPassword"></span>
+        </div>
+        <div class="single-input">
+            <label asp-for="NewPassword">NewPassword</label>
+            <input type="text" asp-for="NewPassword" />
+            <span class="text-danger" asp-validation-for="NewPassword"></span>
+        </div>
+        <div class="single-input">
+            <label asp-for="ConfirmPassword">ConfirmPassword</label>
+            <input type="text" asp-for="ConfirmPassword" />
+            <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+        </div>
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="single-input">
+            <button class="btn btn-custom-size lg-size btn-pronia-primary"
+                    type="submit">
+                <span>SAVE CHANGES</span>
+            </button>
+        </div>
+    </div>
+</form>

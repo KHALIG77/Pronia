@@ -25,9 +25,9 @@
                 <div class="product-item_content">
                     <a class="product-item_title"
                        href="single-product-variable.html">@item.Plant.Name</a>
-                    <span class="product-item_quantity">@item.Count x $@(item.Plant.DiscountPercent>0?((item.Plant.SalePrice*(100-item.Plant.DiscountPercent))/100):item.Plant.SalePrice)</span>
+                <span class="product-item_quantity">@item.Count x $@(item.Plant.DiscountPercent > 0 ? (((item.Plant.SalePrice * (100 - item.Plant.DiscountPercent)) / 100) * (item.Count)).ToString("0.00") : (item.Plant.SalePrice * item.Count).ToString("0.00"))</span>
                 </div>
-                <input value="@Model.AllCount" type="hidden" id="AllCount">
+                <input value="@Model.AllCount" type="hidden" id="allCount">
             </li>
         }
        

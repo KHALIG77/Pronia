@@ -199,8 +199,10 @@ namespace Pronia.Controllers
                 {
                     Count = (int)item.Count,
                     Plant = item.Plant,
+                    
 
                 };
+                bv.AllCount=(byte)basketItems.Count;
                 bv.BasketItems.Add(bi);
                 bv.TotalPrice += (bi.Plant.DiscountPercent > 0 ? ((bi.Plant.SalePrice * (100 - bi.Plant.DiscountPercent) ) / 100) : bi.Plant.SalePrice * bi.Count);
             }

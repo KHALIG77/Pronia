@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wB2w05PSmXtXUQDnAZ7La+UzZxnOxEN282QLd0hvzAE=",
+  "Hash": "UEXE68qAdIeSocv9bGLNqnVHq47ujGd0sOqpH6GZ0pw=",
   "Source": "Pronia",
   "BasePath": "_content/Pronia",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\nice-select.css"
+    },
+    {
+      "Identity": "C:\\Pronia\\Pronia\\wwwroot\\css\\ordertable.css",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Pronia\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "css/ordertable.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ordertable.css"
     },
     {
       "Identity": "C:\\Pronia\\Pronia\\wwwroot\\css\\Pe-icon-7-stroke.css",

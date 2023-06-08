@@ -1,0 +1,232 @@
+﻿
+@model OrderViewModel
+    
+      <main class="main-content">
+        <div
+          class="breadcrumb-area breadcrumb-height"
+          data-bg-image="assets/images/breadcrumb/bg/1-1-1919x388.jpg"
+        >
+          <div class="container h-100">
+            <div class="row h-100">
+              <div class="col-lg-12">
+                <div class="breadcrumb-item">
+                  <h2 class="breadcrumb-heading">Checkout Page</h2>
+                  <ul>
+                    <li>
+                      <a href="index.html">Home</a>
+                    </li>
+                    <li>Checkout</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="checkout-area section-space-y-axis-100">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="coupon-accordion">
+                  <h3>
+                    Returning customer?
+                    <span id="showlogin">Click here to login</span>
+                  </h3>
+                  <div id="checkout-login" class="coupon-content">
+                    <div class="coupon-info">
+                      <p class="coupon-text mb-1">
+                        Quisque gravida turpis sit amet nulla posuere lacinia.
+                        Cras sed est sit amet ipsum luctus.
+                      </p>
+                      <form action="javascript:void(0)">
+                        <p class="form-row-first">
+                          <label class="mb-1"
+                            >Username or email
+                            <span class="required">*</span></label
+                          >
+                          <input type="text" />
+                        </p>
+                        <p class="form-row-last">
+                          <label
+                            >Password <span class="required">*</span></label
+                          >
+                          <input type="text" />
+                        </p>
+                        <p class="form-row">
+                          <input type="checkbox" id="remember_me" />
+                          <label for="remember_me">Remember me</label>
+                        </p>
+                        <p class="lost-password">
+                          <a href="#">Lost your password?</a>
+                        </p>
+                      </form>
+                    </div>
+                  </div>
+                  <h3>
+                    Have a coupon?
+                    <span id="showcoupon">Click here to enter your code</span>
+                  </h3>
+                  <div id="checkout_coupon" class="coupon-checkout-content">
+                    <div class="coupon-info">
+                      <form action="javascript:void(0)">
+                        <p class="checkout-coupon">
+                          <input placeholder="Coupon code" type="text" />
+                          <input
+                            class="coupon-inner_btn"
+                            value="Apply Coupon"
+                            type="submit"
+                          />
+                        </p>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+             @Html.Partial("OrderFormPartialView",Model.OrderFormVM)
+              <div class="col-lg-6 col-12">
+                <div class="your-order">
+                  <h3>Your order</h3>
+                  <div class="your-order-table table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th class="cart-product-name">Product</th>
+                          <th class="cart-product-total">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          @foreach (var item in Model.Items)
+                                    {
+                                        <tr class="cart_item">
+                                            <td class="cart-product-name">
+                                                @item.Name<strong class="product-quantity">
+                                                    × @item.Count
+                                                </strong>
+                                            </td>
+                                            <td class="cart-product-total">
+                                                <span class="amount">$@item.Price.ToString("0.00")</span>
+                                            </td>
+                                        </tr>
+                                    }
+                       
+                       
+                      </tbody>
+                      <tfoot>
+                        <tr class="cart-subtotal">
+                          <th>Cart Subtotal</th>
+                          <td><span class="amount">$@Model.TotalPrice.ToString("0.00")</span></td>
+                        </tr>
+                        <tr class="order-total">
+                          <th>Order Total</th>
+                          <td>
+                            <strong><span class="amount">$@Model.TotalPrice.ToString("0.00")</span></strong>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <div class="payment-method">
+                    <div class="payment-accordion">
+                      <div id="accordion">
+                        <div class="card">
+                          <div class="card-header" id="#payment-1">
+                            <h5 class="panel-title">
+                              <a
+                                href="#"
+                                class=""
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne"
+                                aria-expanded="true"
+                              >
+                                Direct Bank Transfer.
+                              </a>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapseOne"
+                            class="collapse show"
+                            data-bs-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <p>
+                                Make your payment directly into our bank
+                                account. Please use your Order ID as the payment
+                                reference. Your order won’t be shipped until the
+                                funds have cleared in our account.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="#payment-2">
+                            <h5 class="panel-title">
+                              <a
+                                href="#"
+                                class="collapsed"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo"
+                                aria-expanded="false"
+                              >
+                                Cheque Payment
+                              </a>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapseTwo"
+                            class="collapse"
+                            data-bs-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <p>
+                                Make your payment directly into our bank
+                                account. Please use your Order ID as the payment
+                                reference. Your order won’t be shipped until the
+                                funds have cleared in our account.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="#payment-3">
+                            <h5 class="panel-title">
+                              <a
+                                href="#"
+                                class="collapsed"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree"
+                                aria-expanded="false"
+                              >
+                                PayPal
+                              </a>
+                            </h5>
+                          </div>
+                          <div
+                            id="collapseThree"
+                            class="collapse"
+                            data-bs-parent="#accordion"
+                          >
+                            <div class="card-body">
+                              <p>
+                                Make your payment directly into our bank
+                                account. Please use your Order ID as the payment
+                                reference. Your order won’t be shipped until the
+                                funds have cleared in our account.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="order-button-payment">
+                        <input value="Place order" type="submit" form="order-create" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+ 

@@ -20,6 +20,8 @@ namespace Pronia.DAL
 		public DbSet<PlantImage> PlantImages { get; set; }
 		public DbSet<AppUser>AppUsers { get; set; }
 		public DbSet<BasketItem> BasketItems { get; set; }
+		public DbSet<Order> Orders {get; set; }
+		public DbSet<OrderItem> OrderItems {get; set; }
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			builder.Entity<Setting>().HasKey(x => x.Key);

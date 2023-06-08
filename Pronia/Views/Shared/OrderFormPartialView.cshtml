@@ -1,0 +1,70 @@
+﻿@model OrderFormViewModel
+
+<div class="col-lg-6 col-12">
+    <form asp-action="create" method="post" id="order-create">
+        <div class="checkbox-form">
+            <h3>Billing Details</h3>
+            <div class="row">
+
+                
+                <div class="col-md-12">
+                    <div class="checkout-form-list">
+                        <label asp-for="FullName">FullName <span class="required">*</span></label>
+                        <input placeholder="FullName" type="text" asp-for="FullName"/>
+                        <span class="text-danger" asp-validation-for="FullName"></span>
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="checkout-form-list">
+                        <label asp-for="Address">Address <span class="required">*</span></label>
+                        <input placeholder="Street address" type="text" asp-for="Address"/>
+                        <span class="text-danger" asp-validation-for="Address"></span>
+
+
+                    </div>
+                </div>
+               
+                
+                <div class="col-md-6">
+                    <div class="checkout-form-list">
+                        <label asp-for="Country">
+                            County
+                            <span class="required">*</span>
+                        </label>
+                        <input asp-for="Country" placeholder="Country" type="text" />
+                        <span class="text-danger" asp-validation-for="Country"></span>
+
+                    </div>
+                </div>
+              
+                <div class="col-md-6">
+                    <div class="checkout-form-list">
+                        <label asp-for="Email">
+                            Email Address
+                            <span class="required">*</span>
+                        </label>
+                        <input asp-for="Email" placeholder="Email" type="email" />
+                        <span class="text-danger" asp-validation-for="Email"></span>
+
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="different-address">
+               
+                <div class="order-notes">
+                    <div class="checkout-form-list checkout-form-list-2">
+                        <label>Order Notes</label>
+                        <textarea id="checkout-mess"
+                                  cols="30"
+                                  rows="10"
+                                  placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

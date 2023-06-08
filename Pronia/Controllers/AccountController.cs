@@ -1,4 +1,6 @@
-﻿using System.Security.Claims;
+﻿
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,8 +27,13 @@ namespace Pronia.Controllers
             _signInManager = signInManager;
             _emailSender = emailSender;
         }
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl=null)
         {
+            if (returnUrl != null)
+            {
+                ViewBag.ReturnUrl = returnUrl;  
+            }
+
             return View();
         }
         [HttpPost]
@@ -58,14 +65,16 @@ namespace Pronia.Controllers
 
                  
         }
-        public IActionResult Register()
-        {
+        public async Task<IActionResult> Register()
+        {  
+           
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(UserRegisterViewModel userRegisterVm)
         {
+            
             if (!ModelState.IsValid)
             {
                 return View();
@@ -187,6 +196,147 @@ namespace Pronia.Controllers
             await _signInManager.SignInAsync(user, false);
             return RedirectToAction("index", "home");
         }
+
+        [Authorize(Roles ="Member")]
+
+        public async Task<IActionResult> Profile()
+        {
+            AppUser user =await _userManager.FindByNameAsync(User.Identity.Name);
+            if (user == null)
+            {
+                await _signInManager.SignOutAsync();
+                return RedirectToAction("login");
+            }
+            ProfileViewModel profile=new ProfileViewModel()
+            {
+                Orders=_context.Orders.Include(x=>x.OrderItems).ThenInclude(x=>x.Plant).Where(x=>x.AppUserId==user.Id).ToList(),
+                Edit=new ProfileEditViewModel()
+                {
+                    FullName=user.FullName,
+                    UserName=user.UserName,
+                    Email=user.Email,
+                    Address=user.Address,
+                    Phone=user.PhoneNumber
+                }
+            };
+            return View(profile);
+        }
+        [Authorize(Roles ="Member")]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+
+        public async Task<IActionResult> Profile(ProfileEditViewModel formVM)
+        {
+            AppUser user= await _userManager.FindByNameAsync(User.Identity.Name);
+            if(user == null)
+            {
+                await _signInManager.SignOutAsync();
+                return RedirectToAction("login");
+            }
+            if (!ModelState.IsValid)
+            {
+                ProfileViewModel vm=new ProfileViewModel()
+                {
+                    Edit=formVM,
+                    Orders = _context.Orders.Include(x => x.OrderItems).ThenInclude(x => x.Plant).Where(x => x.AppUserId == user.Id).ToList(),
+
+                };
+                return View(vm);
+            }
+            if (formVM.CurrentPassword != null && (formVM.NewPassword == null || formVM.CurrentPassword == null))
+            {
+                ModelState.AddModelError("", "Fill all cell");
+                ProfileViewModel vm = new ProfileViewModel()
+                {
+                    Edit = formVM,
+                   Orders = _context.Orders.Include(x => x.OrderItems).ThenInclude(x => x.Plant).Where(x => x.AppUserId == user.Id).ToList(),
+
+
+               };
+                return View(vm);
+
+            }
+            if(formVM.Email!=User.FindFirstValue(ClaimTypes.Email) && _userManager.Users.Any(x=>x.Email == formVM.Email))
+            {
+                ModelState.AddModelError("Email", "Email already used");
+                ProfileViewModel vm = new ProfileViewModel()
+                {
+                    Edit = formVM,
+                    Orders = _context.Orders.Include(x => x.OrderItems).ThenInclude(x => x.Plant).Where(x => x.AppUserId == user.Id).ToList(),
+
+
+                };
+                return View(vm);
+            }
+            if (formVM.UserName != User.FindFirstValue(ClaimTypes.Name) && _userManager.Users.Any(x => x.UserName == formVM.UserName))
+            {
+                ModelState.AddModelError("UserName", "UserName already used");
+                ProfileViewModel vm = new ProfileViewModel()
+                {
+                    Edit = formVM,
+                    Orders = _context.Orders.Include(x => x.OrderItems).ThenInclude(x => x.Plant).Where(x => x.AppUserId == user.Id).ToList(),
+
+
+                };
+                return View(vm);
+            }
+
+
+
+
+            user.FullName = formVM.FullName;
+            user.Email = formVM.Email;
+            user.UserName = formVM.UserName;
+            user.Address = formVM.Address;
+            user.PhoneNumber = formVM.Phone;
+
+           
+            if (formVM.CurrentPassword != null && formVM.ConfirmPassword == formVM.NewPassword)
+            {
+
+                var passResult = await _userManager.ChangePasswordAsync(user,formVM.CurrentPassword,formVM.NewPassword);
+                if(passResult.Succeeded) 
+                { 
+                    var test = _signInManager.SignInAsync(user, false);
+                    
+                }
+                else
+                {
+                    ModelState.AddModelError("CurrentPassword", "CurrentPassword is not correct");
+                    ProfileViewModel vm = new ProfileViewModel()
+                    {
+                        Edit = formVM,
+                        Orders = _context.Orders.Include(x => x.OrderItems).ThenInclude(x => x.Plant).Where(x => x.AppUserId == user.Id).ToList(),
+
+
+                    };
+                    return View(vm);
+                }
+                
+            }
+          
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+                ProfileViewModel vm = new ProfileViewModel()
+                {
+                    Edit = formVM,
+                    Orders = _context.Orders.Include(x => x.OrderItems).ThenInclude(x => x.Plant).Where(x => x.AppUserId == user.Id).ToList(),
+
+
+                };
+             
+                return View(vm);
+            }
+
+           await _signInManager.SignInAsync(user, false);
+            return RedirectToAction("index", "home");
+        }
+
     }
 
 }

@@ -39,7 +39,9 @@
     <link rel="stylesheet" href="~/css/nice-select.css" />
     <link rel="stylesheet" href="~/css/magnific-popup.min.css" />
     <link rel="stylesheet" href="~/css/ion.rangeSlider.min.css" />
-        <link rel="stylesheet" href="~/css/custom.css" />
+    <link rel="stylesheet" href="~/css/custom.css"/>
+     @RenderSection("styles",required:false)
+
 
 
 
@@ -162,15 +164,16 @@
                           aria-labelledby="settingButton"
                         >
                           <li>
-                            <a class="dropdown-item" href="my-account.html"
-                              >My account</a
-                            >
+                            <a class="dropdown-item" asp-action="profile" asp-controller="account"
+                              >My account</a>
+                            
                           </li>
-                          @if(!User.Identity.IsAuthenticated)
+                          @if(!User.Identity.IsAuthenticated && !User.IsInRole("Member"))
                           {
                                  <li>
                                   <a class="dropdown-item" asp-action="login" asp-controller="account">Login</a>
                                                     </li>
+                                                    <li><a class="dropdown-item" asp-action="register" asp-controller="account">Register</a></li>
                                                 }
                                                 else
                                                 {
@@ -180,9 +183,9 @@
                                                     </li>
                                                 }
                                               
-                           <li>
-                            <a class="dropdown-item" asp-action="register" asp-controller="account"
-                              >Register</a>
+                                                        
+                                                <li>
+                           
                             
                           </li>
                         </ul>
@@ -306,7 +309,7 @@
                             <span class="title">Product Related</span>
                             <ul>
                               <li>
-                                <a href="my-account.html">My Account</a>
+                                <a asp-action="profile" asp-controller="account">My Account</a>
                               </li>
                               <li>
                                 <a href="login-register.html"
@@ -1215,6 +1218,7 @@
    
     <script src="~/js/main.js"></script>
     @RenderSection("Validation",required:false)
+    @RenderSection("Script",required:false)
 @*    @RenderSection("CloseBtn",required:false)*@
    
   </body>
