@@ -9,6 +9,7 @@ namespace Pronia.ViewModels
         public List<Tag> Tags { get; set; }
         public List<Plant> Plants { get; set; }
         public List<string> PlantSize { get; set; }
+        public PaginatedList<Plant> PaginatedList { get; set; }
         public int AllPlantCount { get; set; }
 
     }

@@ -168,20 +168,23 @@
                               >My account</a>
                             
                           </li>
-                          @if(!User.Identity.IsAuthenticated && !User.IsInRole("Member"))
+                          @if(!User.Identity.IsAuthenticated || !User.IsInRole("Member"))
                           {
                                  <li>
                                   <a class="dropdown-item" asp-action="login" asp-controller="account">Login</a>
                                                     </li>
                                                     <li><a class="dropdown-item" asp-action="register" asp-controller="account">Register</a></li>
                                                 }
-                                                else
+                                                @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
                                                 {
                                                     <li>
                                                         <a class="dropdown-item" asp-action="logout" asp-controller="account">Log out</a>
 
                                                     </li>
                                                 }
+
+                                                  
+                                                
                                               
                                                         
                                                 <li>
