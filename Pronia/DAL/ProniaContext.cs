@@ -23,6 +23,7 @@ namespace Pronia.DAL
 		public DbSet<Order> Orders {get; set; }
 		public DbSet<OrderItem> OrderItems {get; set; }
 		public DbSet<Banner> Banners { get; set; }	
+		public DbSet<Brand> Brands { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{

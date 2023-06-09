@@ -8293,10 +8293,6 @@
       "PackagePath": "staticwebassets\\scss\\style.scss"
     },
     {
-      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\banners\\10444a53-4b8e-4a0e-b23c-ffbe22de60d31-1-524x617.png",
-      "PackagePath": "staticwebassets\\uploads\\banners\\10444a53-4b8e-4a0e-b23c-ffbe22de60d31-1-524x617.png"
-    },
-    {
       "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\banners\\3d6fdfbc-c388-4fbb-9b21-92cf2bf36ba21-1-770x300.jpg",
       "PackagePath": "staticwebassets\\uploads\\banners\\3d6fdfbc-c388-4fbb-9b21-92cf2bf36ba21-1-770x300.jpg"
     },
@@ -8311,6 +8307,26 @@
     {
       "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\banners\\e255a5d3-b4a8-4ef9-8bff-41b1e709810e1-2-370x300.jpg",
       "PackagePath": "staticwebassets\\uploads\\banners\\e255a5d3-b4a8-4ef9-8bff-41b1e709810e1-2-370x300.jpg"
+    },
+    {
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\brands\\04bb381a-61f7-4e34-9655-f36f405dbbbb1-2.png",
+      "PackagePath": "staticwebassets\\uploads\\brands\\04bb381a-61f7-4e34-9655-f36f405dbbbb1-2.png"
+    },
+    {
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\brands\\268e0078-5435-4c43-ad6d-3293860748851-4.png",
+      "PackagePath": "staticwebassets\\uploads\\brands\\268e0078-5435-4c43-ad6d-3293860748851-4.png"
+    },
+    {
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\brands\\48642a05-11c1-4a12-9d6c-472213f176791-5.png",
+      "PackagePath": "staticwebassets\\uploads\\brands\\48642a05-11c1-4a12-9d6c-472213f176791-5.png"
+    },
+    {
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\brands\\a9c803ff-9ce5-4ea8-8dbf-cb0796c942951-3.png",
+      "PackagePath": "staticwebassets\\uploads\\brands\\a9c803ff-9ce5-4ea8-8dbf-cb0796c942951-3.png"
+    },
+    {
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\brands\\faa51361-1471-4d94-a168-97f6ea07bbf51-1.png",
+      "PackagePath": "staticwebassets\\uploads\\brands\\faa51361-1471-4d94-a168-97f6ea07bbf51-1.png"
     },
     {
       "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\features\\766fd8c3-6d78-42f1-9b78-0eb1908e7af61-1-570x633.jpg",

@@ -26,6 +26,7 @@ namespace Pronia.Controllers
                 DiscountedPlant = _context.Plants.Include(x => x.Images).Include(x => x.Category).Include(x => x.Tags).Where(x => x.DiscountPercent>0).Take(8).ToList(),
 				Rated =  _context.Plants.Include(x => x.Images).Include(x => x.Category).Include(x => x.Tags).Where(x => x.Rate>3).Take(4).ToList(),
 				Banner=_context.Banners.ToList(),
+				Brand=_context.Brands.ToList(),
 
             };
 			
