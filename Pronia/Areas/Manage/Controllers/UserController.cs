@@ -20,15 +20,16 @@ namespace Pronia.Areas.Manage.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public async Task<IActionResult> Index(int page=1,string search=null)
+        public  IActionResult Index(int page=1,string search=null)
         {
-            var query = _context.AppUsers.Where(x=>x.IsAdmin==false).AsQueryable();
+            var query =  _context.AppUsers.Where(x=>x.IsAdmin==false).AsQueryable();
             if (search != null)
             {
                 query=query.Where(x=>x.FullName.Contains(search));
             }
             return View(PaginatedList<AppUser>.Create(query,page,4));
         }
+        
        
     }
 }
