@@ -8,7 +8,7 @@ using Pronia.ViewModels;
 namespace Pronia.Areas.Manage.Controllers
 {
     [Area("manage")]
-    [Authorize(Roles ="SuperAdmin")]
+    [Authorize(Roles ="SuperAdmin,Admin")]
     public class SliderController : Controller
     {
 

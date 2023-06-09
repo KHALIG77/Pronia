@@ -13,8 +13,8 @@
     }).then((result) => {
         if (result.isConfirmed) {
 
-            fetch(url).then(response => {
-                if (response.ok) {
+          await fetch(url).then( response => {
+                if ( response.ok) {
                     Swal.fire(
                         'Deleted!',
                         'Your file has been deleted.',

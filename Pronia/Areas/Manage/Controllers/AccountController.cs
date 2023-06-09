@@ -25,13 +25,13 @@ namespace Pronia.Areas.Manage.Controllers
         {
             AppUser admin = new AppUser()
             {
-                UserName = "admin",
+                UserName = "xaliq",
                 IsAdmin = true,
 
             };
 
-            var result = await _userManager.CreateAsync(admin, "Admin123");
-            await _userManager.AddToRoleAsync(admin, "SuperAdmin");
+            var result = await _userManager.CreateAsync(admin, "xaliq123");
+            await _userManager.AddToRoleAsync(admin, "Admin");
             return Json(result);
 
         }
@@ -80,5 +80,11 @@ namespace Pronia.Areas.Manage.Controllers
             return RedirectToAction("index", "dashboard");
 
         }
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+             return   RedirectToAction("login");
+        }
+    
     }
 }
