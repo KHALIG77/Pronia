@@ -25,8 +25,10 @@ namespace Pronia.Controllers
                 IsNewPlant = _context.Plants.Include(x => x.Images).Include(x => x.Category).Include(x => x.Tags).Where(x => x.isNew == true).Take(8).ToList(),
                 DiscountedPlant = _context.Plants.Include(x => x.Images).Include(x => x.Category).Include(x => x.Tags).Where(x => x.DiscountPercent>0).Take(8).ToList(),
 				Rated =  _context.Plants.Include(x => x.Images).Include(x => x.Category).Include(x => x.Tags).Where(x => x.Rate>3).Take(4).ToList(),
+				Banner=_context.Banners.ToList(),
 
             };
+			
 			return View(homeVM);	
 		}
 	}

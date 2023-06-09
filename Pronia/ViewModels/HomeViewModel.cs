@@ -10,6 +10,7 @@ namespace Pronia.ViewModels
         public List<Plant> IsNewPlant {get; set; }
         public List<Plant> DiscountedPlant { get; set; }    
         public List<Plant> Rated {get; set; }
+        public List<Banner> Banner { get; set; }
 
 
     }
