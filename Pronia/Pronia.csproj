@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Manage\ViewModels\" />
+    <Folder Include="wwwroot\uploads\features\" />
   </ItemGroup>
 
 </Project>
