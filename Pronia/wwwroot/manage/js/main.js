@@ -13,7 +13,7 @@
     }).then((result) => {
         if (result.isConfirmed) {
 
-          await fetch(url).then( response => {
+          fetch(url).then( response => {
                 if ( response.ok) {
                     Swal.fire(
                         'Deleted!',

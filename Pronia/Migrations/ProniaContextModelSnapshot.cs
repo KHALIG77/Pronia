@@ -511,7 +511,8 @@ namespace Pronia.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ReplyComment")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("ReplyTime")
                         .HasColumnType("datetime2");

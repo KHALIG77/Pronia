@@ -1,0 +1,24 @@
+﻿@model CommentFormViewModel
+@{
+    ViewData["Title"] = "Reply";
+}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1>Detail</h1>
+        <div class="col-md-6">Comment :@ViewBag.Comment</div>
+        <form method="post" asp-action="detail">
+            <div class="form-group">
+                <label asp-for="ReplyComment">Reply</label>
+                <textarea class="form-control" asp-for="ReplyComment"></textarea>
+                <span asp-validation-for="ReplyComment"></span>
+            </div>
+            <input type="hidden" value="@ViewBag.CommentId" name="commentid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+@section Validation{
+    @Html.Partial("_ValidationScripsPartial")
+}

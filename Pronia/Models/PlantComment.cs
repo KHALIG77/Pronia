@@ -13,6 +13,7 @@ namespace Pronia.Models
         [MaxLength(400)]
         [Required]
         public string Comment {get; set;}
+        [MaxLength(100)]
         public string ReplyComment {get; set;}
         public DateTime ReplyTime {get; set;}
         public DateTime CreatedAt {get; set;}

@@ -1,4 +1,6 @@
-﻿namespace Pronia.ViewModels
+﻿using Pronia.Models;
+
+namespace Pronia.ViewModels
 {
     public class PaginatedList<T>
     {
@@ -22,6 +24,5 @@
             return new PaginatedList<T>(query.Skip((page - 1) * size).Take(size).ToList(), page, total);
 
         }
-
     }
 }
