@@ -1,0 +1,41 @@
+﻿@model PlantComment
+
+<div class="feedback-area">
+    <h2 class="heading">Leave a comment</h2>
+    <div class="rating">
+        <input form="form-comment" type="radio" id="star5" name="rate" value="5" />
+        <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
+        <input form="form-comment" type="radio" id="star4" name="rate" value="4" />
+        <label class="star" for="star4" title="Great" aria-hidden="true"></label>
+        <input form="form-comment" type="radio" id="star3" name="rate" value="3" />
+        <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
+        <input form="form-comment" type="radio" id="star2" name="rate" value="2" />
+        <label class="star" for="star2" title="Good" aria-hidden="true"></label>
+        <input form="form-comment" type="radio" id="star1" name="rate" value="1" />
+        <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
+        <span class="text-danger" asp-validation-for="Rate"></span>
+    </div>
+   
+
+    <form id="form-comment" class="feedback-form" asp-action="commentform" method="post">
+        <div class="group-input">
+          <input value="@Model.PlantId" type="hidden" name="PlantId">
+           
+        </div>
+       
+        <div class="form-field mt-30 d-flex">
+            <textarea asp-for="Comment"
+                      placeholder="Message"
+                      class="textarea-field"></textarea>
+            <span class="text-danger" asp-validation-for="Comment"></span>
+        </div>
+        <div class="button-wrap pt-5">
+            <button type="submit"
+                    value="submit"
+                    class="btn btn-custom-size xl-size btn-pronia-primary"
+                    name="submit">
+                Post Comment
+            </button>
+        </div>
+    </form>
+</div>

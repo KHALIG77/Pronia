@@ -4,26 +4,27 @@ using Pronia.Models;
 
 namespace Pronia.DAL
 {
-	public class ProniaContext:IdentityDbContext
+	public class ProniaContext : IdentityDbContext
 	{
-		public ProniaContext(DbContextOptions<ProniaContext> options):base(options) 
-		{ 
-		
+		public ProniaContext(DbContextOptions<ProniaContext> options) : base(options)
+		{
+
 		}
 		public DbSet<Setting> Settings { get; set; }
-		public DbSet<Slider> Sliders {get; set; }
-		public DbSet<Feature> Features { get; set; }	
+		public DbSet<Slider> Sliders { get; set; }
+		public DbSet<Feature> Features { get; set; }
 		public DbSet<Plant> Plants { get; set; }
 		public DbSet<Category> Categories { get; set; }
-		public DbSet<Tag>Tags { get; set; }
-		public DbSet<PlantTag>PlantTags { get; set; }
+		public DbSet<Tag> Tags { get; set; }
+		public DbSet<PlantTag> PlantTags { get; set; }
 		public DbSet<PlantImage> PlantImages { get; set; }
-		public DbSet<AppUser>AppUsers { get; set; }
+		public DbSet<AppUser> AppUsers { get; set; }
 		public DbSet<BasketItem> BasketItems { get; set; }
-		public DbSet<Order> Orders {get; set; }
-		public DbSet<OrderItem> OrderItems {get; set; }
-		public DbSet<Banner> Banners { get; set; }	
+		public DbSet<Order> Orders { get; set; }
+		public DbSet<OrderItem> OrderItems { get; set; }
+		public DbSet<Banner> Banners { get; set; }
 		public DbSet<Brand> Brands { get; set; }
+		public DbSet<PlantComment> PlantComments { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{

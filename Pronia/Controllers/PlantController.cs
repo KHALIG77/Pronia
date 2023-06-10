@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using Newtonsoft.Json;
 using Pronia.DAL;
 using Pronia.Models;
@@ -209,5 +210,66 @@ namespace Pronia.Controllers
             return bv;
         }
 
+        public IActionResult Detail(int id)
+        {
+            Plant plant = _context.Plants.Include(x => x.Images).Include(x => x.Category).Include(x => x.PlantComments).ThenInclude(x=>x.AppUser).Include(x=>x.Tags).ThenInclude(t=>t.Tag).FirstOrDefault(x => x.Id == id);
+            if (plant == null)
+            {
+                return View("Error");
+            }
+            PlantDetailViewModel vm = new PlantDetailViewModel()
+            {
+                Plant = plant,
+                Features = _context.Features.Take(3).ToList(),
+                Comment=new PlantComment() { PlantId=id},
+                RelatedItems=_context.Plants.Include(x=>x.Images).Where(x=>x.CategoryId==plant.CategoryId).ToList()
+                
+        };
+
+            return View(vm);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CommentForm(PlantComment plantComment)
+        {
+            if (!User.Identity.IsAuthenticated && !User.IsInRole("Member"))
+            {
+                return RedirectToAction("login", "account", new { returUrl = Url.Action("detail", "plant", new { id = plantComment.PlantId }) });
+            }
+            if (!ModelState.IsValid)
+            {
+                Plant plat = _context.Plants.Include(x => x.Images).Include(x => x.Category).Include(x => x.PlantComments).ThenInclude(x => x.AppUser).Include(x => x.Tags).ThenInclude(t => t.Tag).FirstOrDefault(x => x.Id == plantComment.PlantId);
+                if (plat == null)
+                {
+                    return View("Error");
+                }
+                PlantDetailViewModel vm = new PlantDetailViewModel
+                {
+                    Plant=plat,
+                    Comment = new PlantComment { PlantId = plantComment.PlantId },
+                    Features=_context.Features.Take(3).ToList(),
+                    RelatedItems = _context.Plants.Include(x=>x.Images).Where(x => x.CategoryId == plat.CategoryId).ToList()
+
+
+                };
+                vm.Comment = plantComment;
+                return View("Detail", vm);
+
+            }
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            plantComment.AppUserId = userId;
+            plantComment.CreatedAt = DateTime.UtcNow.AddHours(4);
+           
+           
+            _context.PlantComments.Add(plantComment);
+            _context.SaveChanges();
+            Plant plant = _context.Plants.Include(x => x.PlantComments).FirstOrDefault(x => x.Id == plantComment.PlantId);
+            plant.Rate =plant.PlantComments.Any()? (byte)Math.Ceiling((decimal)(plant.PlantComments.Average(x=>x.Rate))):(byte)0;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("detail", new { id = plantComment.PlantId });
+         
+        }
     }
 }

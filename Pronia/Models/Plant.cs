@@ -50,6 +50,7 @@ namespace Pronia.Models
         public List<IFormFile> AllImages { get; set; }=new List<IFormFile>();
         [NotMapped]
         public List<int> ImageIds { get; set; } = new List<int>();
+        public List<PlantComment> PlantComments { get; set; } = new List<PlantComment>();
 
     }
 }

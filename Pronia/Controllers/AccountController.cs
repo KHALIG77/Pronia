@@ -168,7 +168,7 @@ namespace Pronia.Controllers
             return new ChallengeResult("Google",prop);
 
         }
-        public async Task<IActionResult> GoogleResponse()
+        public async Task<IActionResult> GoogleResponse(string returnUrl=null)
         {
             var info = _signInManager?.GetExternalLoginInfoAsync();
             if (info == null)
@@ -194,6 +194,10 @@ namespace Pronia.Controllers
                 await _userManager.AddToRoleAsync(user, "Member");
             }
             await _signInManager.SignInAsync(user, false);
+            if (returnUrl != null)
+            {
+                return Redirect(returnUrl);
+            }
             return RedirectToAction("index", "home");
         }
 

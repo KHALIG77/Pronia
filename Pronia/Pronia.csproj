@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Manage\ViewModels\" />
-    <Folder Include="wwwroot\uploads\features\" />
     <Folder Include="wwwroot\uploads\banners\" />
     <Folder Include="wwwroot\uploads\brands\" />
   </ItemGroup>

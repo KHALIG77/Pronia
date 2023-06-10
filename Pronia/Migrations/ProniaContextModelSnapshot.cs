@@ -485,6 +485,46 @@ namespace Pronia.Migrations
                     b.ToTable("Plants");
                 });
 
+            modelBuilder.Entity("Pronia.Models.PlantComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PlantId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rate")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReplyComment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ReplyTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("PlantId");
+
+                    b.ToTable("PlantComments");
+                });
+
             modelBuilder.Entity("Pronia.Models.PlantImage", b =>
                 {
                     b.Property<int>("Id")
@@ -732,6 +772,23 @@ namespace Pronia.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Pronia.Models.PlantComment", b =>
+                {
+                    b.HasOne("Pronia.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("Pronia.Models.Plant", "Plant")
+                        .WithMany("PlantComments")
+                        .HasForeignKey("PlantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Plant");
+                });
+
             modelBuilder.Entity("Pronia.Models.PlantImage", b =>
                 {
                     b.HasOne("Pronia.Models.Plant", "Plant")
@@ -775,6 +832,8 @@ namespace Pronia.Migrations
             modelBuilder.Entity("Pronia.Models.Plant", b =>
                 {
                     b.Navigation("Images");
+
+                    b.Navigation("PlantComments");
 
                     b.Navigation("Tags");
                 });
