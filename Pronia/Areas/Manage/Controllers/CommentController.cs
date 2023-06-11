@@ -44,7 +44,9 @@ namespace Pronia.Areas.Manage.Controllers
             ViewBag.CommentId=comment.Id;
             CommentFormViewModel vm = new CommentFormViewModel()
             {
-                ReplyComment=comment.ReplyComment
+                ReplyComment=comment.ReplyComment,
+                Show=comment.ShowComment
+                
             };
           
                 
@@ -69,6 +71,7 @@ namespace Pronia.Areas.Manage.Controllers
                 CommentFormViewModel vm = new CommentFormViewModel();
                 return View(vm);
             }
+            plantCom.ShowComment = plantComment.Show;
             plantCom.ReplyComment = plantComment.ReplyComment;
             plantCom.ReplyTime = DateTime.UtcNow.AddHours(4);
          

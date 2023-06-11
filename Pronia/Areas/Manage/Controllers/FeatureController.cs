@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Pronia.DAL;
 using Pronia.Helper.FileManager;
 using Pronia.Models;
@@ -7,6 +8,7 @@ using Pronia.ViewModels;
 namespace Pronia.Areas.Manage.Controllers
 {
     [Area("manage")]
+    [Authorize("SuperAdmin,Admin")]
     public class FeatureController : Controller
     {
         private readonly IWebHostEnvironment _env;

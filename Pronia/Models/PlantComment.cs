@@ -19,6 +19,7 @@ namespace Pronia.Models
         public DateTime CreatedAt {get; set;}
         public AppUser AppUser {get; set;}  
         public Plant Plant { get; set; }
+        public bool ShowComment { get;set;}
 
     }
 }

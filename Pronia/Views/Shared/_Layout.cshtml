@@ -133,7 +133,7 @@
                   </div>
 
                   <a href="index.html" class="header-logo">
-                    <img src="~/images/logo/@settingData["HeaderLogo"]" alt="Header Logo" />
+                    <img src="~/uploads/settings/@settingData["HeaderLogo"]" alt="Header Logo" />
                   </a>
 
                   <div class="header-right">
@@ -193,11 +193,7 @@
                           </li>
                         </ul>
                       </li>
-                      <li class="d-none d-lg-block">
-                        <a href="wishlist.html">
-                          <i class="pe-7s-like"></i>
-                        </a>
-                      </li>
+                     
                       <li class="minicart-wrap me-3 me-lg-0">
                         <a href="#miniCart" class="minicart-btn toolbar-btn">
                           <i class="pe-7s-shopbag"></i>
@@ -227,142 +223,16 @@
                   <nav class="main-nav">
                     <ul>
                       <li class="drop-holder">
-                        <a href="index.html">Home</a>
-                        <ul class="drop-menu">
-                          <li>
-                            <a href="index.html">Home One</a>
-                          </li>
-                          <li>
-                            <a href="index-2.html">Home Two</a>
-                          </li>
-                        </ul>
+                        <a asp-action="index" asp-controller="home">Home</a>
+                       
                       </li>
                       <li class="megamenu-holder">
-                        <a href="shop.html">Shop</a>
-                        <ul class="drop-menu megamenu">
-                          <li>
-                            <span class="title">Shop Layout</span>
-                            <ul>
-                              <li>
-                                <a href="shop.html">Shop Default</a>
-                              </li>
-                              <li>
-                                <a href="shop-grid-fullwidth.html"
-                                  >Shop Grid Fullwidth</a
-                                >
-                              </li>
-                              <li>
-                                <a href="shop-right-sidebar.html"
-                                  >Shop Right Sidebar</a
-                                >
-                              </li>
-                              <li>
-                                <a href="shop-list-fullwidth.html"
-                                  >Shop List Fullwidth</a
-                                >
-                              </li>
-                              <li>
-                                <a href="shop-list-left-sidebar.html"
-                                  >Shop List Left Sidebar</a
-                                >
-                              </li>
-                              <li>
-                                <a href="shop-list-right-sidebar.html"
-                                  >Shop List Right Sidebar</a
-                                >
-                              </li>
-                            </ul>
-                          </li>
-                          <li>
-                            <span class="title">Product Style</span>
-                            <ul>
-                              <li>
-                                <a href="single-product-variable.html"
-                                  >Single Product Variable</a
-                                >
-                              </li>
-                              <li>
-                                <a href="single-product-group.html"
-                                  >Single Product Group</a
-                                >
-                              </li>
-                              <li>
-                                <a href="single-product.html"
-                                  >Single Product Default</a
-                                >
-                              </li>
-                              <li>
-                                <a href="single-product-affiliate.html"
-                                  >Single Product Affiliate</a
-                                >
-                              </li>
-                              <li>
-                                <a href="single-product-sale.html"
-                                  >Single Product Sale</a
-                                >
-                              </li>
-                              <li>
-                                <a href="single-product-sticky.html"
-                                  >Single Product Sticky</a
-                                >
-                              </li>
-                            </ul>
-                          </li>
-                          <li>
-                            <span class="title">Product Related</span>
-                            <ul>
-                              <li>
-                                <a asp-action="profile" asp-controller="account">My Account</a>
-                              </li>
-                              <li>
-                                <a href="login-register.html"
-                                  >Login | Register</a
-                                >
-                              </li>
-                              <li>
-                                <a href="cart.html">Shopping Cart</a>
-                              </li>
-                              <li>
-                                <a href="wishlist.html">Wishlist</a>
-                              </li>
-                              <li>
-                                <a href="compare.html">Compare</a>
-                              </li>
-                              <li>
-                                <a href="checkout.html">Checkout</a>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
+                        <a asp-action="index" asp-controller="shop">Shop</a>
+                       
                       </li>
-                      <li class="drop-holder">
-                        <a href="blog.html">Blog</a>
-                        <ul class="drop-menu">
-                          <li>
-                            <a href="blog-listview.html">Blog List View</a>
-                          </li>
-                          <li>
-                            <a href="blog-detail.html">Blog Detail</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="about.html">About Us</a>
-                      </li>
-                      <li class="drop-holder">
-                        <a href="#">Pages</a>
-                        <ul class="drop-menu">
-                          <li>
-                            <a href="faq.html">FAQ</a>
-                          </li>
-                          <li>
-                            <a href="404.html">Error 404</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="contact.html">Contact Us</a>
-                      </li>
+                      
+                     
+                      
                     </ul>
                   </nav>
                 </div>
@@ -376,7 +246,7 @@
               <div class="row align-items-center">
                 <div class="col-lg-3 col-6">
                   <a href="index.html" class="header-logo">
-                    <img src="~/images/logo/dark.png" alt="Header Logo" />
+                    <img src="~/uploads/settings/@settingData["HeaderLogo"]" alt="Header Logo" />
                   </a>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block">
@@ -384,148 +254,28 @@
                     <nav class="main-nav">
                       <ul>
                         <li class="drop-holder">
-                          <a href="index.html">Home</a>
-                          <ul class="drop-menu">
-                            <li>
-                              <a href="index.html">Home One</a>
-                            </li>
-                            <li>
-                              <a href="index-2.html">Home Two</a>
-                            </li>
-                          </ul>
+                          <a asp-action="index" asp-controller="home">Home</a>
+                         
                         </li>
                         <li class="megamenu-holder">
-                          <a href="shop.html">Shop</a>
-                          <ul class="drop-menu megamenu">
-                            <li>
-                              <span class="title">Shop Layout</span>
-                              <ul>
-                                <li>
-                                  <a href="shop.html">Shop Default</a>
-                                </li>
-                                <li>
-                                  <a href="shop-grid-fullwidth.html"
-                                    >Shop Grid Fullwidth</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="shop-right-sidebar.html"
-                                    >Shop Right Sidebar</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="shop-list-fullwidth.html"
-                                    >Shop List Fullwidth</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="shop-list-left-sidebar.html"
-                                    >Shop List Left Sidebar</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="shop-list-right-sidebar.html"
-                                    >Shop List Right Sidebar</a
-                                  >
-                                </li>
-                              </ul>
-                            </li>
-                            <li>
-                              <span class="title">Product Style</span>
-                              <ul>
-                                <li>
-                                  <a href="single-product-variable.html"
-                                    >Single Product Variable</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="single-product-group.html"
-                                    >Single Product Group</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="single-product.html"
-                                    >Single Product Default</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="single-product-affiliate.html"
-                                    >Single Product Affiliate</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="single-product-sale.html"
-                                    >Single Product Sale</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="single-product-sticky.html"
-                                    >Single Product Sticky</a
-                                  >
-                                </li>
-                              </ul>
-                            </li>
-                            <li>
-                              <span class="title">Product Related</span>
-                              <ul>
-                                <li>
-                                  <a href="my-account.html">My Account</a>
-                                </li>
-                                <li>
-                                  <a href="login-register.html"
-                                    >Login | Register</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="cart.html">Shopping Cart</a>
-                                </li>
-                                <li>
-                                  <a href="wishlist.html">Wishlist</a>
-                                </li>
-                                <li>
-                                  <a href="compare.html">Compare</a>
-                                </li>
-                                <li>
-                                  <a href="checkout.html">Checkout</a>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
+                          <a asp-action="index" asp-controller="shop">Shop</a>
+                          
                         </li>
-                        <li class="drop-holder">
-                          <a href="blog.html">Blog</a>
-                          <ul class="drop-menu">
-                            <li>
-                              <a href="blog-listview.html">Blog List View</a>
-                            </li>
-                            <li>
-                              <a href="blog-detail.html">Blog Detail</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="about.html">About Us</a>
-                        </li>
-                        <li class="drop-holder">
-                          <a href="#">Pages</a>
-                          <ul class="drop-menu">
-                            <li>
-                              <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                              <a href="404.html">Error 404</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="contact.html">Contact Us</a>
-                        </li>
+                       
+                       
+                        
                       </ul>
                     </nav>
                   </div>
                 </div>
                 <div class="col-lg-3 col-6">
                   <div class="header-right">
+                                  
+
+
+
+
+
                     <ul>
                       <li>
                         <a
@@ -548,27 +298,38 @@
                         >
                           <i class="pe-7s-users"></i>
                         </button>
-                        <ul
-                          class="dropdown-menu"
-                          aria-labelledby="stickysettingButton"
-                        >
-                          <li>
-                            <a class="dropdown-item" href="my-account.html"
-                              >My account</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item" href="login-register.html"
-                              >Login | Register</a
-                            >
-                          </li>
-                        </ul>
+                                            <ul class="dropdown-menu"
+                                                aria-labelledby="settingButton">
+                                                <li>
+                                                    <a class="dropdown-item" asp-action="profile" asp-controller="account">My account</a>
+
+                                                </li>
+                                                @if (!User.Identity.IsAuthenticated || !User.IsInRole("Member"))
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" asp-action="login" asp-controller="account">Login</a>
+                                                    </li>
+                                                    <li><a class="dropdown-item" asp-action="register" asp-controller="account">Register</a></li>
+                                                }
+                                                @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" asp-action="logout" asp-controller="account">Log out</a>
+
+                                                    </li>
+                                                }
+
+
+
+
+
+                                                <li>
+
+
+                                                </li>
+                                            </ul>
                       </li>
-                      <li class="d-none d-lg-block">
-                        <a href="wishlist.html">
-                          <i class="pe-7s-like"></i>
-                        </a>
-                      </li>
+                     
                       <li class="minicart-wrap me-3 me-lg-0">
                         <a href="#miniCart" class="minicart-btn toolbar-btn">
                           <i class="pe-7s-shopbag"></i>
@@ -665,241 +426,34 @@
                       </li>
                     </ul>
                   </li>
-                  <li>
-                    <a href="wishlist.html">
-                      <i class="pe-7s-like"></i>
-                    </a>
-                  </li>
+                 
                 </ul>
               </div>
               <div class="offcanvas-menu_area">
                 <nav class="offcanvas-navigation">
                   <ul class="mobile-menu">
                     <li class="menu-item-has-children">
-                      <a href="#">
+                      <a asp-action="index" asp-controller="home">
                         <span class="mm-text"
                           >Home
                           <i class="pe-7s-angle-down"></i>
                         </span>
                       </a>
-                      <ul class="sub-menu">
-                        <li>
-                          <a href="index.html">
-                            <span class="mm-text">Home One</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="index-2.html">
-                            <span class="mm-text">Home Two</span>
-                          </a>
-                        </li>
-                      </ul>
+                    
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="#">
+                      <a asp-action="index" asp-controller="shop">
                         <span class="mm-text"
                           >Shop
                           <i class="pe-7s-angle-down"></i>
                         </span>
                       </a>
-                      <ul class="sub-menu">
-                        <li class="menu-item-has-children">
-                          <a href="#">
-                            <span class="mm-text"
-                              >Shop Layout
-                              <i class="pe-7s-angle-down"></i>
-                            </span>
-                          </a>
-                          <ul class="sub-menu">
-                            <li>
-                              <a href="shop.html">
-                                <span class="mm-text">Shop Default</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-grid-fullwidth.html">
-                                <span class="mm-text">Shop Grid Fullwidth</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-right-sidebar.html">
-                                <span class="mm-text">Shop Right Sidebar</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-list-fullwidth.html">
-                                <span class="mm-text">Shop List Fullwidth</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-list-left-sidebar.html">
-                                <span class="mm-text"
-                                  >Shop List Left Sidebar</span
-                                >
-                              </a>
-                            </li>
-                            <li>
-                              <a href="shop-list-right-sidebar.html">
-                                <span class="mm-text"
-                                  >Shop List Right Sidebar</span
-                                >
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                          <a href="#">
-                            <span class="mm-text"
-                              >Product Style
-                              <i class="pe-7s-angle-down"></i>
-                            </span>
-                          </a>
-                          <ul class="sub-menu">
-                            <li>
-                              <a href="single-product.html">
-                                <span class="mm-text"
-                                  >Single Product Default</span
-                                >
-                              </a>
-                            </li>
-                            <li>
-                              <a href="single-product-group.html">
-                                <span class="mm-text"
-                                  >Single Product Group</span
-                                >
-                              </a>
-                            </li>
-                            <li>
-                              <a href="single-product-variable.html">
-                                <span class="mm-text"
-                                  >Single Product Variable</span
-                                >
-                              </a>
-                            </li>
-                            <li>
-                              <a href="single-product-sale.html">
-                                <span class="mm-text">Single Product Sale</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="single-product-sticky.html">
-                                <span class="mm-text"
-                                  >Single Product Sticky</span
-                                >
-                              </a>
-                            </li>
-                            <li>
-                              <a href="single-product-affiliate.html">
-                                <span class="mm-text"
-                                  >Single Product Affiliate</span
-                                >
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                          <a href="#">
-                            <span class="mm-text"
-                              >Product Related
-                              <i class="pe-7s-angle-down"></i>
-                            </span>
-                          </a>
-                          <ul class="sub-menu">
-                            <li>
-                              <a href="my-account.html">
-                                <span class="mm-text">My Account</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="login-register.html">
-                                <span class="mm-text">Login | Register</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="cart.html">
-                                <span class="mm-text">Shopping Cart</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="wishlist.html">
-                                <span class="mm-text">Wishlist</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="compare.html">
-                                <span class="mm-text">Compare</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="checkout.html">
-                                <span class="mm-text">Checkout</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
+                     
                     </li>
-                    <li class="menu-item-has-children">
-                      <a href="#">
-                        <span class="mm-text"
-                          >Blog
-                          <i class="pe-7s-angle-down"></i>
-                        </span>
-                      </a>
-                      <ul class="sub-menu">
-                        <li class="menu-item-has-children">
-                          <a href="#">
-                            <span class="mm-text"
-                              >Blog Holder
-                              <i class="pe-7s-angle-down"></i>
-                            </span>
-                          </a>
-                          <ul class="sub-menu">
-                            <li>
-                              <a href="blog.html">
-                                <span class="mm-text">Blog Default</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="blog-listview.html">Blog List View</a>
-                            </li>
-                            <li>
-                              <a href="blog-detail.html">Blog Detail</a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="about.html">
-                        <span class="mm-text">About Us</span>
-                      </a>
-                    </li>
-                    <li class="menu-item-has-children">
-                      <a href="#">
-                        <span class="mm-text"
-                          >Pages
-                          <i class="pe-7s-angle-down"></i>
-                        </span>
-                      </a>
-                      <ul class="sub-menu">
-                        <li>
-                          <a href="faq.html">
-                            <span class="mm-text">Frequently Questions</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="404.html">
-                            <span class="mm-text">Error 404</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="contact.html">
-                        <span class="mm-text">Contact</span>
-                      </a>
-                    </li>
+                   
+                    
+                    
+                    
                   </ul>
                 </nav>
               </div>
@@ -1005,7 +559,7 @@
                 <div class="footer-widget-item">
                   <div class="footer-widget-logo">
                     <a href="index.html">
-                      <img src="~/images/logo/@settingData["FooterLogo"]" alt="Logo" />
+                      <img src="~/uploads/settings/@settingData["FooterLogo"]" alt="Logo" />
                     </a>
                   </div>
                   <p class="footer-widget-desc">
@@ -1104,9 +658,7 @@
                     <li>
                       <a href="#">View Cart</a>
                     </li>
-                    <li>
-                      <a href="#">My Wishlist</a>
-                    </li>
+                    
                     <li>
                       <a href="#">Track My Order</a>
                     </li>

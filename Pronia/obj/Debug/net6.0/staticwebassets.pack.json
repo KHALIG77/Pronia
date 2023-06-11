@@ -8329,10 +8329,6 @@
       "PackagePath": "staticwebassets\\uploads\\brands\\faa51361-1471-4d94-a168-97f6ea07bbf51-1.png"
     },
     {
-      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\features\\766fd8c3-6d78-42f1-9b78-0eb1908e7af61-1-570x633.jpg",
-      "PackagePath": "staticwebassets\\uploads\\features\\766fd8c3-6d78-42f1-9b78-0eb1908e7af61-1-570x633.jpg"
-    },
-    {
       "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\features\\car.png",
       "PackagePath": "staticwebassets\\uploads\\features\\car.png"
     },
@@ -8509,12 +8505,16 @@
       "PackagePath": "staticwebassets\\uploads\\plants\\f9adee68-84fd-4c7e-8bee-21419ba1414e1-3-570x633.jpg"
     },
     {
-      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\settings\\dark - Copy.png",
-      "PackagePath": "staticwebassets\\uploads\\settings\\dark - Copy.png"
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\settings\\27c05ee3-d944-46f7-9b31-a1bd2ef79dacdark.png",
+      "PackagePath": "staticwebassets\\uploads\\settings\\27c05ee3-d944-46f7-9b31-a1bd2ef79dacdark.png"
     },
     {
-      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\settings\\dark.png",
-      "PackagePath": "staticwebassets\\uploads\\settings\\dark.png"
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\settings\\43f07ddb-3636-4824-89ac-619364a3bbd11-1-524x617.png",
+      "PackagePath": "staticwebassets\\uploads\\settings\\43f07ddb-3636-4824-89ac-619364a3bbd11-1-524x617.png"
+    },
+    {
+      "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\settings\\82649637-28a2-4060-b62e-e703db0b251fdark.png",
+      "PackagePath": "staticwebassets\\uploads\\settings\\82649637-28a2-4060-b62e-e703db0b251fdark.png"
     },
     {
       "Id": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\slider-bg\\a213f737-85ce-4782-9ed4-b36ba3c72b86emblem.png",

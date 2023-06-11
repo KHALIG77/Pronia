@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Pronia.DAL;
@@ -16,7 +17,7 @@ namespace Pronia.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(int? categoryid,int? minprice, int? maxprice,string search=null, string  size=null, List<int> tagId=null,string sort=null,int page=1)
+        public IActionResult Index(int? categoryid,int? minprice, int? maxprice,string search=null, List<int> tagId = null, string  size=null,string sort=null,int page=1)
         {
             ShopViewModel shopVM = new ShopViewModel()
             {
@@ -26,7 +27,7 @@ namespace Pronia.Controllers
                 AllPlantCount = _context.Plants.Count()
 
             };
-            var query = _context.Plants.Include(x => x.Images.Where(x => x.ImageStatus != ImageStatus.Images)).Include(x => x.Category).Include(x => x.Tags).AsQueryable();
+            var query = _context.Plants.Include(x => x.Images.Where(x => x.ImageStatus != ImageStatus.Images)).Include(x => x.Category).Include(x => x.Tags).ThenInclude(y=>y.Tag).AsQueryable();
             if (sort!=null)
             {
                 switch (sort)
@@ -53,19 +54,23 @@ namespace Pronia.Controllers
             {
                 query=query.Where(x=>(int)x.Size==(int)Enum.Parse(typeof(PlantSize),size));
             }
-            if (_context.Plants.Any()&&minprice==null)
-            {
-                minprice =(int)_context.Plants.Min(x => x.SalePrice);
-            }else if (_context.Plants.Any()&&maxprice!=null)
-            {
-                maxprice =(int) _context.Plants.Max(X => X.SalePrice);
-            }else if (minprice!=null&&maxprice!=null)
+            //if (_context.Plants.Any()&&minprice==null)
+            //{
+            //    minprice =(int)_context.Plants.Min(x => x.SalePrice);
+            //}else if (_context.Plants.Any()&&maxprice!=null)
+            //{
+            //    maxprice =(int) _context.Plants.Max(X => X.SalePrice);
+            if (minprice!=null&&maxprice!=null)
             {
                 query = query.Where(x=>x.SalePrice>=minprice&&x.SalePrice<=maxprice);
             }
             //if (tagId.Count > 0)
             //{
-            //    query = query.Include(x=>x.Tags.Where());
+            //    //gelenTagIdListesi.Where(tagId => tagId == benimTagId).ToList()
+
+            //    query = query.Include(x=>x.Tags);
+                
+                
             //}
 
             if (search!=null)
@@ -93,7 +98,7 @@ namespace Pronia.Controllers
 
             query.ToList();
 
-            shopVM.PaginatedList= PaginatedList<Plant>.Create(query, page, 2);
+            shopVM.PaginatedList= PaginatedList<Plant>.Create(query, page, 6);
           
 
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pronia.DAL;
 using Pronia.Enums;
@@ -8,6 +9,7 @@ using Pronia.ViewModels;
 namespace Pronia.Areas.Manage.Controllers
 {
     [Area("manage")]
+    [Authorize("SuperAdmin,Admin")]
     public class OrderController : Controller
     {
         private readonly ProniaContext _context;

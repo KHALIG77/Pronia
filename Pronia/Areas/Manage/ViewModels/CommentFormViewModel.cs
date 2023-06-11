@@ -8,5 +8,6 @@ namespace Pronia.Areas.Manage.ViewModels
         [MaxLength(100)]
         public string ReplyComment {get; set;}
          public int CommentId {get; set;}
+         public bool Show { get; set;}
     }
 }

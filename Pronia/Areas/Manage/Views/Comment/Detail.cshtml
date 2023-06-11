@@ -8,6 +8,11 @@
         <div class="col-md-6">Comment :@ViewBag.Comment</div>
         <form method="post" asp-action="detail">
             <div class="form-group">
+                <label asp-for="Show">Show</label>
+                <input class="form-control" asp-for="Show">
+                <span class="text-danger" asp-validation-for="Show"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="ReplyComment">Reply</label>
                 <textarea class="form-control" asp-for="ReplyComment"></textarea>
                 <span asp-validation-for="ReplyComment"></span>

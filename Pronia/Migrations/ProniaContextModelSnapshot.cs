@@ -517,6 +517,9 @@ namespace Pronia.Migrations
                     b.Property<DateTime>("ReplyTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("ShowComment")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");

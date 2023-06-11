@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Pronia.Areas.Manage.ViewModels;
 using Pronia.DAL;
 using Pronia.Helper.FileManager;
@@ -7,6 +8,7 @@ using Pronia.Models;
 namespace Pronia.Areas.Manage.Controllers
 {
     [Area("manage")]
+    [Authorize("SuperAdmin,Admin")]
 
     public class SettingController : Controller
     {

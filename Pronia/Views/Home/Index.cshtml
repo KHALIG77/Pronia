@@ -186,7 +186,7 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" href="shop.html">@Model.FeaturedPlant[i].Name</a>
+                                            <a class="product-name" asp-action="detail" asp-controller="plant" asp-route-id="@Model.FeaturedPlant[i].Id">@Model.FeaturedPlant[i].Name</a>
                                             <div class="price-box pb-1">
                                                 @if(Model.FeaturedPlant[i].DiscountPercent>0){
                                                     <span class="new-price">$@((Model.FeaturedPlant[i].SalePrice-((Model.FeaturedPlant[i].SalePrice*(Model.FeaturedPlant[i].DiscountPercent))/100)).ToString("0.00"))</span>
@@ -276,7 +276,7 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" href="shop.html">@Model.IsNewPlant[i].Name</a>
+                                            <a class="product-name" asp-action="detail" asp-controller="plant" asp-route-id="@Model.IsNewPlant[i].Id">@Model.IsNewPlant[i].Name</a>
                                             <div class="price-box pb-1">
                                                 @if (Model.IsNewPlant[i].DiscountPercent > 0)
                                                 {
@@ -367,7 +367,7 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <a class="product-name" href="shop.html">@Model.DiscountedPlant[i].Name</a>
+                                            <a class="product-name"asp-action="detail" asp-controller="plant" asp-route-id="@Model.DiscountedPlant[i].Id">@Model.DiscountedPlant[i].Name</a>
                                             <div class="price-box pb-1">
                                                 @if (Model.DiscountedPlant[i].DiscountPercent > 0)
                                                 {
@@ -543,7 +543,7 @@
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <a class="product-name" href="shop.html">@Model.Rated[i].Name</a>
+                                    <a class="product-name" asp-action="detail" asp-controller="plant" asp-route-id="@Model.Rated[i].Id">@Model.Rated[i].Name</a>
                                     <div class="price-box pb-1">
                                         @if (Model.Rated[i].DiscountPercent > 0)
                                         {

@@ -1,0 +1,50 @@
+﻿@model AdminCreateViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1>Edit</h1>
+        <form method="post" asp-action="edit">
+            <div class="form-group">
+                <label asp-for="FullName">FullName</label>
+                <input type="text" class="form-control" asp-for="FullName">
+                <span asp-validation-for="FullName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName">UserName</label>
+                <input type="text" class="form-control" asp-for="UserName">
+                <span asp-validation-for="UserName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input type="text" class="form-control" asp-for="Email">
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone">Phone</label>
+                <input type="text" class="form-control" asp-for="Phone">
+                <span asp-validation-for="Phone"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input type="text" class="form-control" asp-for="Password">
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewPassword">NewPassword</label>
+                <input type="text" class="form-control" asp-for="NewPassword">
+                <span asp-validation-for="NewPassword"></span>
+            </div>
+            <input name="Id" type="hidden" value="@ViewBag.Id">
+            <div class="form-group text-danger" asp-validation-summary="ModelOnly">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+@section Validation{
+    @Html.Partial("_ValidationScripsPartial")
+}
