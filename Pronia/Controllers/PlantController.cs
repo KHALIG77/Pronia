@@ -155,8 +155,13 @@ namespace Pronia.Controllers
                                 Plant = _context.Plants.Include(x => x.Images.Where(x=>x.ImageStatus==Enums.ImageStatus.Poster)).FirstOrDefault(x => x.Id == ci.PlantId),
 
                             };
+                            bv.AllCount = (byte)cookieItems.Count;
                             bv.BasketItems.Add(bi);
                             bv.TotalPrice += (bi.Plant.DiscountPercent > 0 ? (bi.Plant.SalePrice * (100 - bi.Plant.DiscountPercent) / 100) : bi.Plant.SalePrice) * bi.Count;
+                        }
+                        if (cookieItems.Count == 0)
+                        {
+                            bv.AllCount =(byte)0;
                         }
                     }
                     return PartialView("BasketItemPartialView", bv);
@@ -219,12 +224,18 @@ namespace Pronia.Controllers
             {
                 return View("Error");
             }
+            bool accessComment = true;
+            if (plant.PlantComments.Any(comment=>comment.AppUserId==User.FindFirstValue(ClaimTypes.NameIdentifier)))
+            {
+                accessComment = false;
+            }
             PlantDetailViewModel vm = new PlantDetailViewModel()
             {
                 Plant = plant,
                 Features = _context.Features.Take(3).ToList(),
                 Comment=new PlantComment() { PlantId=id},
-                RelatedItems=_context.Plants.Include(x=>x.Images).Where(x=>x.CategoryId==plant.CategoryId).ToList()
+                RelatedItems=_context.Plants.Include(x=>x.Images).Where(x=>x.CategoryId==plant.CategoryId).ToList(),
+                CommentShow=accessComment,
                 
         };
 

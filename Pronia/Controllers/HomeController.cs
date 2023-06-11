@@ -27,6 +27,7 @@ namespace Pronia.Controllers
 				Rated =  _context.Plants.Include(x => x.Images).Include(x => x.Category).Include(x => x.Tags).Where(x => x.Rate>3).Take(4).ToList(),
 				Banner=_context.Banners.ToList(),
 				Brand=_context.Brands.ToList(),
+				Comments=_context.PlantComments.Include(user=>user.AppUser).Where(comment=>comment.ShowComment==true).Take(3).ToList(),
 
             };
 			

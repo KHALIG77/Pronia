@@ -258,7 +258,11 @@
                        
                       
                       </div>
-                     @Html.Partial("CommentFormPartialView",Model.Comment)
+                                @if (Model.CommentShow)
+                                {
+                                    @Html.Partial("CommentFormPartialView",Model.Comment)
+
+                                }
                     </div>
                   </div>
                 </div>

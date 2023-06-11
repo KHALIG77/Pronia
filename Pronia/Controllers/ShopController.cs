@@ -17,7 +17,7 @@ namespace Pronia.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(int? categoryid,int? minprice, int? maxprice,string search=null, List<int> tagId = null, string  size=null,string sort=null,int page=1)
+        public IActionResult Index(int? categoryid,int? minprice, int? maxprice,string search=null, List<int>  tagId = null, string  size=null,string sort=null,int page=1)
         {
             ShopViewModel shopVM = new ShopViewModel()
             {
@@ -54,12 +54,7 @@ namespace Pronia.Controllers
             {
                 query=query.Where(x=>(int)x.Size==(int)Enum.Parse(typeof(PlantSize),size));
             }
-            //if (_context.Plants.Any()&&minprice==null)
-            //{
-            //    minprice =(int)_context.Plants.Min(x => x.SalePrice);
-            //}else if (_context.Plants.Any()&&maxprice!=null)
-            //{
-            //    maxprice =(int) _context.Plants.Max(X => X.SalePrice);
+           
             if (minprice!=null&&maxprice!=null)
             {
                 query = query.Where(x=>x.SalePrice>=minprice&&x.SalePrice<=maxprice);
@@ -68,7 +63,7 @@ namespace Pronia.Controllers
             {
 
 
-                query = query.Include(x => x.Tags.Where(x=>x.TagId==20));
+                query = query.Include(x=>x.Tags).Where(plant=>plant.Tags.Any(tag=>tagId.Contains(tag.TagId)));
 
 
             }
@@ -98,7 +93,7 @@ namespace Pronia.Controllers
 
             query.ToList();
 
-            shopVM.PaginatedList= PaginatedList<Plant>.Create(query, page, 6);
+            shopVM.PaginatedList= PaginatedList<Plant>.Create(query, page, 3);
           
 
 

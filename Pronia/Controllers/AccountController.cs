@@ -43,6 +43,7 @@ namespace Pronia.Controllers
             if (!ModelState.IsValid)
             {
                 ModelState.AddModelError("", "Email or Password incorrect");
+                return View(userVM);
             }
 
             AppUser user=await _userManager.FindByEmailAsync(userVM.Email);
@@ -65,7 +66,7 @@ namespace Pronia.Controllers
 
                  
         }
-        public async Task<IActionResult> Register()
+        public  IActionResult Register()
         {  
            
             return View();
@@ -107,8 +108,35 @@ namespace Pronia.Controllers
             }
             await _userManager.AddToRoleAsync(user, "Member");
 
-            return RedirectToAction("login");
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var confirmationLink = Url.Action("confirmemail", "account", new { token, email = userRegisterVm.Email }, Request.Scheme);
+
+            _emailSender.Send(userRegisterVm.Email, "Email Confirmation Link", confirmationLink);
+
+
+
+            return RedirectToAction(nameof(SuccessRegistration));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmEmail(string token, string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+                return View("Error");
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            return View(result.Succeeded ? nameof(ConfirmEmail) : "Error");
+           
+        }
+        
+        public IActionResult SuccessRegistration()
+        {
+            return View();
+        }
+
+
+
+
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();

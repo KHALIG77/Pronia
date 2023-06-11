@@ -259,7 +259,7 @@ namespace Pronia.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Banners");
+                    b.ToTable("Banners", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.BasketItem", b =>
@@ -285,7 +285,7 @@ namespace Pronia.Migrations
 
                     b.HasIndex("PlantId");
 
-                    b.ToTable("BasketItems");
+                    b.ToTable("BasketItems", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.Brand", b =>
@@ -307,7 +307,7 @@ namespace Pronia.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brands", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.Category", b =>
@@ -325,7 +325,7 @@ namespace Pronia.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.Feature", b =>
@@ -352,7 +352,7 @@ namespace Pronia.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Features");
+                    b.ToTable("Features", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.Order", b =>
@@ -395,7 +395,7 @@ namespace Pronia.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.OrderItem", b =>
@@ -430,7 +430,7 @@ namespace Pronia.Migrations
 
                     b.HasIndex("PlantId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItems", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.Plant", b =>
@@ -482,7 +482,7 @@ namespace Pronia.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Plants");
+                    b.ToTable("Plants", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.PlantComment", b =>
@@ -526,7 +526,7 @@ namespace Pronia.Migrations
 
                     b.HasIndex("PlantId");
 
-                    b.ToTable("PlantComments");
+                    b.ToTable("PlantComments", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.PlantImage", b =>
@@ -550,7 +550,7 @@ namespace Pronia.Migrations
 
                     b.HasIndex("PlantId");
 
-                    b.ToTable("PlantImages");
+                    b.ToTable("PlantImages", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.PlantTag", b =>
@@ -573,7 +573,7 @@ namespace Pronia.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("PlantTags");
+                    b.ToTable("PlantTags", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.Setting", b =>
@@ -587,7 +587,7 @@ namespace Pronia.Migrations
 
                     b.HasKey("Key");
 
-                    b.ToTable("Settings");
+                    b.ToTable("Settings", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.Slider", b =>
@@ -632,7 +632,7 @@ namespace Pronia.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sliders");
+                    b.ToTable("Sliders", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.Tag", b =>
@@ -650,7 +650,7 @@ namespace Pronia.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tags", (string)null);
                 });
 
             modelBuilder.Entity("Pronia.Models.AppUser", b =>
