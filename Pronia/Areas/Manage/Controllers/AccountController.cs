@@ -12,29 +12,27 @@ namespace Pronia.Areas.Manage.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AccountController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _roleManager = roleManager;
         }
 
-        public async Task<IActionResult> CreateAdmin()
-        {
-            AppUser admin = new AppUser()
-            {
-                UserName = "xaliq",
-                IsAdmin = true,
+        //public async Task<IActionResult> CreateAdmin()
+        //{
+        //    AppUser admin = new AppUser()
+        //    {
+        //        UserName = "xaliq",
+        //        IsAdmin = true,
 
-            };
+        //    };
 
-            var result = await _userManager.CreateAsync(admin, "xaliq123");
-            await _userManager.AddToRoleAsync(admin, "Admin");
-            return Json(result);
+        //    var result = await _userManager.CreateAsync(admin, "xaliq123");
+        //    await _userManager.AddToRoleAsync(admin, "Admin");
+        //    return Json(result);
 
-        }
+        //}
         //public async Task<IActionResult> CreateRole()
         //{
         //    await _roleManager.CreateAsync(new IdentityRole("SuperAdmin"));

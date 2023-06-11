@@ -4,19 +4,22 @@ using Microsoft.EntityFrameworkCore;
 using Pronia.DAL;
 using Pronia.Enums;
 using Pronia.Models;
+using Pronia.Services;
 using Pronia.ViewModels;
 
 namespace Pronia.Areas.Manage.Controllers
 {
     [Area("manage")]
-    [Authorize("SuperAdmin,Admin")]
+    [Authorize(Roles ="SuperAdmin,Admin")]
     public class OrderController : Controller
     {
         private readonly ProniaContext _context;
+        private readonly IEmailSender _email;
 
-        public OrderController(ProniaContext context)
+        public OrderController(ProniaContext context,IEmailSender email)
         {
             _context = context;
+            _email = email;
         }
         public IActionResult Index(int page=1,int orderstatus=0,string search=null)
         {
@@ -43,9 +46,13 @@ namespace Pronia.Areas.Manage.Controllers
         public IActionResult Accept(int id)
         {
             Order order = _context.Orders.Include(x => x.OrderItems).FirstOrDefault(x => x.Id == id);
+            
             if (order == null) return View("Error");
             order.OrderStatus= OrderStatus.Access;
             _context.SaveChanges();
+            _email.Send(order.Email, "Accept", "Yoldadi gelir");
+            
+            
             return RedirectToAction("index");
         }
         public IActionResult Reject(int id)
@@ -53,6 +60,7 @@ namespace Pronia.Areas.Manage.Controllers
             Order order = _context.Orders.Include(x => x.OrderItems).FirstOrDefault(x => x.Id == id);
             if (order == null) return View("Error");
             order.OrderStatus = OrderStatus.Rejected;
+            _email.Send(order.Email, "Reject", "Ureyim bele isdedi");
             _context.SaveChanges();
             return RedirectToAction("index");
         }

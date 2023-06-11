@@ -8,7 +8,7 @@ using Pronia.ViewModels;
 namespace Pronia.Areas.Manage.Controllers
 {
     [Area("manage")]
-    [Authorize("SuperAdmin,Admin")]
+    [Authorize(Roles ="SuperAdmin,Admin")]
     public class FeatureController : Controller
     {
         private readonly IWebHostEnvironment _env;

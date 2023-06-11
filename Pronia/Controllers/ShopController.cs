@@ -64,14 +64,14 @@ namespace Pronia.Controllers
             {
                 query = query.Where(x=>x.SalePrice>=minprice&&x.SalePrice<=maxprice);
             }
-            //if (tagId.Count > 0)
-            //{
-            //    //gelenTagIdListesi.Where(tagId => tagId == benimTagId).ToList()
+            if (tagId.Count > 0)
+            {
 
-            //    query = query.Include(x=>x.Tags);
-                
-                
-            //}
+
+                query = query.Include(x => x.Tags.Where(x=>x.TagId==20));
+
+
+            }
 
             if (search!=null)
             {

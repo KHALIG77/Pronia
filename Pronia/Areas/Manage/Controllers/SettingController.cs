@@ -8,7 +8,7 @@ using Pronia.Models;
 namespace Pronia.Areas.Manage.Controllers
 {
     [Area("manage")]
-    [Authorize("SuperAdmin,Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
 
     public class SettingController : Controller
     {

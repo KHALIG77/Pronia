@@ -42,6 +42,7 @@ namespace Pronia.Controllers
                 if (basketItem != null)
                 {
                     basketItem.Count++;
+                    
                 }
                 else
                 {
@@ -70,6 +71,7 @@ namespace Pronia.Controllers
                     if (cookieitem != null)
                     {
                         cookieitem.Count++;
+                       
                     }
                     else
                     {
@@ -205,7 +207,7 @@ namespace Pronia.Controllers
                 };
                 bv.AllCount=(byte)basketItems.Count;
                 bv.BasketItems.Add(bi);
-                bv.TotalPrice += (bi.Plant.DiscountPercent > 0 ? ((bi.Plant.SalePrice * (100 - bi.Plant.DiscountPercent) ) / 100) : bi.Plant.SalePrice * bi.Count);
+                bv.TotalPrice += (bi.Plant.DiscountPercent > 0 ? (((bi.Plant.SalePrice * (100 - bi.Plant.DiscountPercent) ) / 100)*bi.Count) : bi.Plant.SalePrice * bi.Count);
             }
             return bv;
         }

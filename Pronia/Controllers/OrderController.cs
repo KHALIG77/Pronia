@@ -19,7 +19,7 @@ namespace Pronia.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public async Task< IActionResult >Checkout()
+        public async Task<IActionResult>Checkout()
         {
             OrderViewModel orderVM = new OrderViewModel();
             orderVM.Items = GetCheckoutItems();
@@ -33,12 +33,12 @@ namespace Pronia.Controllers
                     FullName = user.FullName,
 
                 };
-                orderVM.TotalPrice = orderVM.TotalPrice = orderVM.Items.Any() ? orderVM.Items.Sum(x => x.Price * x.Count) : 0;
+                 orderVM.TotalPrice = orderVM.Items.Any() ? orderVM.Items.Sum(x => x.Price * x.Count) : 0;
                 return View(orderVM);
 
 
             }
-            orderVM.TotalPrice = orderVM.TotalPrice = orderVM.Items.Any() ? orderVM.Items.Sum(x => x.Price * x.Count) : 0;
+            orderVM.TotalPrice = orderVM.Items.Any() ? orderVM.Items.Sum(x => x.Price * x.Count) : 0;
 
             return View(orderVM);
         }
@@ -64,7 +64,7 @@ namespace Pronia.Controllers
                     OrderViewModel vm = new OrderViewModel();
                     vm.Items = GetCheckoutItems();
                     vm.OrderFormVM = orderVM;
-                    vm.TotalPrice = vm.TotalPrice = vm.Items.Any() ? vm.Items.Sum(x => x.Price * x.Count) : 0;
+                  vm.TotalPrice = vm.Items.Any() ? vm.Items.Sum(x => x.Price * x.Count) : 0;
 
                     return View("Checkout", vm);
                 }
@@ -134,7 +134,7 @@ namespace Pronia.Controllers
                 PlantId = x.PlantId,
                 Count = x.Count,
                 Name = x.Plant.Name,
-                Price = x.Plant.DiscountPercent > 0 ? ((x.Plant.SalePrice * (100 - x.Plant.DiscountPercent) / 100)*x.Count) : x.Plant.SalePrice * x.Count
+                Price = x.Plant.DiscountPercent > 0 ? ((x.Plant.SalePrice * (100 - x.Plant.DiscountPercent) / 100)) : x.Plant.SalePrice 
 
             }).ToList();
         }
@@ -155,7 +155,7 @@ namespace Pronia.Controllers
                         Count = (int)item.Count,
                         PlantId = plant.Id,
                         Name = plant.Name,
-                        Price = (decimal)(plant.DiscountPercent > 0 ? ((plant.SalePrice * (100 - plant.DiscountPercent) / 100) * item.Count) : plant.SalePrice * item.Count)
+                        Price = (decimal)(plant.DiscountPercent > 0 ? ((plant.SalePrice * (100 - plant.DiscountPercent) / 100) ) : plant.SalePrice)
 
                     };
                     checkoutItems.Add(checkoutItem);
