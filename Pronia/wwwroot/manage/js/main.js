@@ -21,9 +21,7 @@
                         'success'
                     ).then(() => location.reload())
                 }
-                else {
-                    alert("Xeta bas verdi")
-                }
+                
             });
 
 

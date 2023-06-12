@@ -15,6 +15,7 @@ namespace Pronia.Controllers
         {
            _context = context;
         }
+		
         public IActionResult Index()
 		{
 			HomeViewModel homeVM = new HomeViewModel()
@@ -33,5 +34,6 @@ namespace Pronia.Controllers
 			
 			return View(homeVM);	
 		}
+	
 	}
 }

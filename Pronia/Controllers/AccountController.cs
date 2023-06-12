@@ -151,8 +151,8 @@ namespace Pronia.Controllers
         public async Task<IActionResult> ForgetPassword(ForgetPasswordViewModel forgetVM)
         {
             if (!ModelState.IsValid) { return View(); };
-            AppUser user = await _userManager.FindByEmailAsync(forgetVM.Email);
-            if(user== null||user.IsAdmin) { ModelState.AddModelError("Email", "Email not found"); };
+            AppUser user =  _context.AppUsers.FirstOrDefault(x=>x.Email==forgetVM.Email);
+            if(user== null||user.IsAdmin) { ModelState.AddModelError("", "Email not found"); return View(); };
             string token =await _userManager.GeneratePasswordResetTokenAsync(user);
             string url = Url.Action("resetpassword", "account", new {email=forgetVM.Email,token=token},Request.Scheme);
             _emailSender.Send(forgetVM.Email, "Reset Password", $" Click <a href=\"{url}\"> Here</a>");
@@ -208,17 +208,21 @@ namespace Pronia.Controllers
             AppUser user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
+                Guid password = Guid.NewGuid();
                 user = new AppUser()
                 {
                     Email = email,
-                    UserName = email
+                    UserName = email,
+                    
 
                 };
-                var result = await _userManager.CreateAsync(user);
+                var result = await _userManager.CreateAsync(user,password.ToString());
+
                 if (!result.Succeeded)
                 {
                     return RedirectToAction("login");
                 }
+                _emailSender.Send(email, "Password", password.ToString());
                 await _userManager.AddToRoleAsync(user, "Member");
             }
             await _signInManager.SignInAsync(user, false);

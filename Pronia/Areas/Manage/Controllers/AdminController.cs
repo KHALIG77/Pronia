@@ -38,10 +38,10 @@ namespace Pronia.Areas.Manage.Controllers
             if (!ModelState.IsValid) return View(admin);
             if (admin.Password == null)
             {
-                ModelState.AddModelError("Passwor", "Password is required");
+                ModelState.AddModelError("Password", "Password is required");
                 return View(admin);
             }
-            if (_context.AppUsers.Any(x => x.UserName == admin.UserName))
+            if (_context.AppUsers.Any(x => x.UserName == admin.UserName && x.IsAdmin==true))
             {
                 ModelState.AddModelError("UserName", "Username already used");
                 return View(admin);
@@ -53,7 +53,8 @@ namespace Pronia.Areas.Manage.Controllers
                 PhoneNumber=admin.Phone,
                 Email=admin.Email,
                 FullName=admin.FullName,
-                UserName=admin.UserName
+                UserName=admin.UserName,
+                EmailConfirmed=true,
                 
             };
             var result = await _userManager.CreateAsync(newAdmin, admin.Password);
@@ -63,7 +64,7 @@ namespace Pronia.Areas.Manage.Controllers
                 {
                     ModelState.AddModelError("", error.Description);
                 }
-                return View(newAdmin);
+                return View(admin);
             }
             await _userManager.AddToRoleAsync(newAdmin, "Admin");
             return RedirectToAction("index");

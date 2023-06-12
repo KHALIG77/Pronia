@@ -110,11 +110,12 @@ namespace Pronia.Controllers
                 ClearDbBasket(user.Id);
 
             }
+
             else
             {
                 order.FullName = orderVM.FullName;
                 order.Email = orderVM.Email;
-                Response.Cookies.Delete("Basket");
+                Response.Cookies.Delete("basket");
             }
             _context.Orders.Add(order);
             _context.SaveChanges();

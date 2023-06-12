@@ -38,3 +38,4 @@ $(document).on("click", ".removefrombasket", function (e) {
         })
 })
 
+

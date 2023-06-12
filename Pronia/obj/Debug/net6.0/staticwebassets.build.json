@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QOnPbSrBe3/khHmfLQbKlYHwTY2mWMntjymHeWMa9Oc=",
+  "Hash": "tVzhs/XYqLhoJGbC6iJmqwt69Zn4goh1N0X4+8RGADw=",
   "Source": "Pronia",
   "BasePath": "_content/Pronia",
   "Mode": "Default",
@@ -2210,6 +2210,23 @@
       "OriginalItemSpec": "wwwroot\\images\\website-images\\1-1920x465.jpg"
     },
     {
+      "Identity": "C:\\Pronia\\Pronia\\wwwroot\\images\\website-images\\1-1920x886.png",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Pronia\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "images/website-images/1-1920x886.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\website-images\\1-1920x886.png"
+    },
+    {
       "Identity": "C:\\Pronia\\Pronia\\wwwroot\\images\\website-images\\1--1rnu4p.png",
       "SourceId": "Pronia",
       "SourceType": "Discovered",
@@ -2752,6 +2769,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\website-images\\3.png"
+    },
+    {
+      "Identity": "C:\\Pronia\\Pronia\\wwwroot\\images\\website-images\\404.png",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Pronia\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "images/website-images/404.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\website-images\\404.png"
     },
     {
       "Identity": "C:\\Pronia\\Pronia\\wwwroot\\images\\website-images\\car.png",
@@ -36227,6 +36261,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\slider-bg\\a213f737-85ce-4782-9ed4-b36ba3c72b86emblem.png"
     },
     {
+      "Identity": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\slider-bg\\c765150e-97c2-46b2-a120-8f4a267de0111-1.jpg",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Pronia\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/slider-bg/c765150e-97c2-46b2-a120-8f4a267de0111-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\slider-bg\\c765150e-97c2-46b2-a120-8f4a267de0111-1.jpg"
+    },
+    {
       "Identity": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\slider-bg\\f09ec9d3-935b-4439-9190-5aeeb5ef35e680%.PNG",
       "SourceId": "Pronia",
       "SourceType": "Discovered",
@@ -36259,6 +36310,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\slider-bg\\f0ac8dc6-f89d-4d65-9f74-eabba9e6f6e61-1.jpg"
+    },
+    {
+      "Identity": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\slider-inner\\1497007b-c0eb-44ec-a842-c75ee56082531-1-524x617.png",
+      "SourceId": "Pronia",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Pronia\\Pronia\\wwwroot\\",
+      "BasePath": "_content/Pronia",
+      "RelativePath": "uploads/slider-inner/1497007b-c0eb-44ec-a842-c75ee56082531-1-524x617.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\slider-inner\\1497007b-c0eb-44ec-a842-c75ee56082531-1-524x617.png"
     },
     {
       "Identity": "C:\\Pronia\\Pronia\\wwwroot\\uploads\\slider-inner\\e7d1ed56-6218-4a81-bc2c-d40f2b17a3831-1-524x617.png",

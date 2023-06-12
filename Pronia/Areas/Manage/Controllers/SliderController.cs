@@ -67,10 +67,7 @@ namespace Pronia.Areas.Manage.Controllers
             {
                 slider.BgUrl = FileManager.Save(_env.WebRootPath, "uploads/slider-bg", slider.BgImageFile);
             }
-            else
-            {
-                slider.BgUrl = "1-1.jpg";
-            }
+            
             slider.ImageUrl = FileManager.Save(_env.WebRootPath, "uploads/slider-inner", slider.ImageFile);
             _context.Sliders.Add(slider);
             _context.SaveChanges();

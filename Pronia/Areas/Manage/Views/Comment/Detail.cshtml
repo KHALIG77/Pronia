@@ -3,11 +3,13 @@
     ViewData["Title"] = "Reply";
 }
 <div class="row justify-content-center">
-    <div class="col-md-8">
-        <h1>Detail</h1>
-        <div class="col-md-6">Comment :@ViewBag.Comment</div>
+    <div class="col-md-8 " style="margin-top:100px">
+        
+        <div class="d-flex flex-column  align-items-center">
+        <div class="col-md-4" style="margin:50px">Comment :@ViewBag.Comment</div>
+        <div class="col-md-6">
         <form method="post" asp-action="detail">
-            <div class="form-group">
+            <div class="form-group d-flex justify-content-center align-items-center">
                 <label asp-for="Show">Show</label>
                 <input class="form-control" asp-for="Show">
                 <span class="text-danger" asp-validation-for="Show"></span>
@@ -20,6 +22,8 @@
             <input type="hidden" value="@ViewBag.CommentId" name="commentid">
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        </div>
+        </div>
     </div>
 </div>
 
